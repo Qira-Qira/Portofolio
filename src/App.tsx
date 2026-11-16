@@ -68,7 +68,7 @@ export default function App() {
         }
         return;
       }
-      transitionTo({ type: 'home' }, 'Alden.', sectionId);
+      transitionTo({ type: 'home' }, 'Ariq.', sectionId);
     },
     [route.type, transitionTo],
   );
@@ -103,13 +103,13 @@ export default function App() {
   // Keep document title updated per route
   useEffect(() => {
     if (route.type === 'home') {
-      document.title = 'Alden Prabaswara — Full-Stack & Android Developer';
+      document.title = 'Ariq — Full-Stack & Android Developer';
     } else if (route.type === 'service') {
-      document.title = `${SERVICE_DETAILS[route.slug].title} — Alden Prabaswara`;
+      document.title = `${SERVICE_DETAILS[route.slug].title} — Ariq`;
     } else if (route.type === 'certificates') {
-      document.title = 'Certificates — Alden Prabaswara';
+      document.title = 'Certificates — Ariq';
     } else {
-      document.title = 'Projects Archive — Alden Prabaswara';
+      document.title = 'Projects Archive — Ariq';
     }
   }, [route]);
 
