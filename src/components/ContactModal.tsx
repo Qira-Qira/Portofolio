@@ -95,7 +95,7 @@ export function ContactModal({ open, onClose }: ContactModalProps) {
                   <h3 className="text-lg font-extrabold text-[#18181A]">Message received!</h3>
                   <p className="text-sm text-[#575650] mt-1">
                     Thanks, <span className="font-semibold text-[#18181A]">{form.name}</span>.
-                    Alden will reply to{' '}
+                    Ariq will reply to{' '}
                     <span className="font-mono-code text-xs text-[#18181A]">{form.email}</span>{' '}
                     within 24 hours.
                   </p>
