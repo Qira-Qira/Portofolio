@@ -59,14 +59,14 @@ export function AboutSection({ onNavigateService }: AboutSectionProps) {
                   FOLLOW ME
                 </span>
                 <span className="hidden sm:inline-block absolute top-1/2 -right-8 z-20 px-2.5 py-0.5 bg-[#2F45FF] text-white text-[10px] font-mono-code font-bold uppercase tracking-wider border border-[#18181A] rotate-3 shadow-[2px_2px_0px_#18181A]">
-                  WHO IS ALDEN
+                  WHO IS ARIQ
                 </span>
 
                 {/* Portrait Image */}
                 <div className="aspect-[3/4] w-full rounded-lg overflow-hidden border-2 border-[#18181A] bg-[#EAE6DC]">
                   <img
                     src="/src/assets/images/alden_portrait_1794749716543.jpg"
-                    alt="Muhammad Alden Prabaswara"
+                    alt="Nawaf Ariq Hilalbi"
                     className="w-full h-full object-cover object-top"
                     referrerPolicy="no-referrer"
                   />
