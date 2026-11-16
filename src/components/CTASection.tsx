@@ -7,7 +7,7 @@ export function CTASection({ onOpenContact }: { onOpenContact: () => void }) {
 
   const handleCopyEmail = async () => {
     try {
-      await navigator.clipboard.writeText('aldenprabaswara@gmail.com');
+      await navigator.clipboard.writeText('nawaf.hilalbi25@student.uisi.ac.id');
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     } catch {
@@ -76,7 +76,7 @@ export function CTASection({ onOpenContact }: { onOpenContact: () => void }) {
               onClick={handleCopyEmail}
               className="inline-flex items-center gap-2 text-sm font-mono-code text-white underline underline-offset-4 hover:text-[#F4C542] transition-colors cursor-pointer"
             >
-              <span>aldenprabaswara@gmail.com</span>
+              <span>nawaf.hilalbi25@student.uisi.ac.id</span>
               {copied ? (
                 <Check className="w-3.5 h-3.5 text-[#AEEBD2]" />
               ) : (
