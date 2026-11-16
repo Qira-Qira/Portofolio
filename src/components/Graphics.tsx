@@ -1,6 +1,6 @@
 import React from 'react';
 
-export function ApMonogram({
+export function AQMonogram({
   className = 'w-8 h-8',
   color = 'currentColor',
 }: {
@@ -15,27 +15,21 @@ export function ApMonogram({
       className={className}
       aria-hidden="true"
     >
-      {/* Geometric AP monogram matching the video */}
+      <path d="M49 23L54 19L64 31L59 36Z" fill={color} />
       <path
-        d="M5 36L19.5 6H27L12.5 36H5Z"
+        d="M3 36L15 6H23L35 36H27L24 28H14L11 36H3ZM16 22H22L19 14Z"
         fill={color}
+        fillRule="evenodd"
       />
       <path
-        d="M17 25H31L28.5 30.5H14.5L17 25Z"
+        d="M45 6H54L61 13V27L54 34H45L38 27V13L45 6ZM47 12L44 15V25L47 28H52L55 25V15L52 12H47Z"
         fill={color}
-      />
-      <path
-        d="M27 6H45.5C53.2 6 58 10.5 58 17.5C58 24.5 53.2 29 45.5 29H34L36.5 23.5H45C49.5 23.5 52 21.1 52 17.5C52 13.9 49.5 11.5 45 11.5H32.5L24 36H17.5L27 6Z"
-        fill={color}
+        fillRule="evenodd"
       />
     </svg>
   );
 }
 
-/**
- * Crisp pixel-block wordmark "ALDEN" rendered on a clean 5-row bitmap matrix
- * so it looks identical to the hero Figma selection box & footer giant wordmark.
- */
 const PIXEL_LETTERS: Record<string, number[][]> = {
   A: [
     [0, 1, 1, 1, 0],
@@ -65,6 +59,13 @@ const PIXEL_LETTERS: Record<string, number[][]> = {
     [1, 0, 0, 0],
     [1, 1, 1, 1],
   ],
+  I: [
+    [1, 1, 1],
+    [0, 1, 0],
+    [0, 1, 0],
+    [0, 1, 0],
+    [1, 1, 1],
+  ],
   N: [
     [1, 0, 0, 0, 1],
     [1, 1, 0, 0, 1],
@@ -72,10 +73,24 @@ const PIXEL_LETTERS: Record<string, number[][]> = {
     [1, 0, 0, 1, 1],
     [1, 0, 0, 0, 1],
   ],
+  Q: [
+    [0, 1, 1, 1, 0, 0],
+    [1, 0, 0, 0, 1, 0],
+    [1, 0, 0, 0, 1, 0],
+    [1, 0, 0, 1, 1, 0],
+    [0, 1, 1, 1, 0, 1],
+  ],
+  R: [
+    [1, 1, 1, 1, 0],
+    [1, 0, 0, 0, 1],
+    [1, 1, 1, 1, 0],
+    [1, 0, 0, 1, 0],
+    [1, 0, 0, 0, 1],
+  ],
 };
 
 export function PixelWordmark({
-  word = 'ALDEN',
+  word = 'ARIQ',
   color = '#18181A',
   className = 'w-full h-auto',
 }: {
