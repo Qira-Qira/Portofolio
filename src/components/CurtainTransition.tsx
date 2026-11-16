@@ -1,5 +1,5 @@
 import { AnimatePresence, motion } from 'motion/react';
-import { ApMonogram } from './Graphics';
+import { AQMonogram } from './Graphics';
 
 export function CurtainTransition({
   label,
@@ -31,7 +31,7 @@ export function CurtainTransition({
             transition={{ delay: 0.12, duration: 0.25 }}
             className="flex flex-col items-center gap-4"
           >
-            <ApMonogram className="w-12 h-9" color="#FAF8F3" />
+            <AQMonogram className="w-12 h-9" color="#FAF8F3" />
             <span className="text-xl sm:text-2xl font-bold tracking-tight text-[#FAF8F3]">
               {label}
             </span>
