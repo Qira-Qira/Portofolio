@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import { ChevronDown, Github, Instagram, Linkedin, Mail, Menu, X } from 'lucide-react';
-import { ApMonogram } from './Graphics';
+import { AQMonogram } from './Graphics';
 import { ServiceSlug, WHAT_I_BUILD_ITEMS } from '../data/portfolioData';
 
 export type AppRoute =
@@ -54,9 +54,9 @@ export function Navbar({
             onNavigateHome();
           }}
           className="flex items-center gap-2 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#18181A] shrink-0 cursor-pointer"
-          aria-label="Alden Prabaswara home"
+          aria-label="Ariq home"
         >
-          <ApMonogram className="w-8 h-6" color="#18181A" />
+          <AQMonogram className="w-8 h-6" color="#18181A" />
         </button>
 
         {/* Center: Nav Links (Desktop) */}
@@ -148,11 +148,10 @@ export function Navbar({
           </div>
         </nav>
 
-        {/* Right: Social Buttons + Hire Alden CTA */}
         <div className="flex items-center gap-2 shrink-0">
           <div className="hidden sm:flex items-center gap-1.5 mr-1">
             <a
-              href="https://github.com/aldenprabaswara"
+              href="https://github.com/Qira-Qira"
               target="_blank"
               rel="noreferrer"
               aria-label="GitHub profile"
@@ -161,7 +160,7 @@ export function Navbar({
               <Github className="w-3.5 h-3.5 text-[#18181A]" />
             </a>
             <a
-              href="https://linkedin.com/in/aldenprabaswara"
+              href="https://www.linkedin.com/in/nawaf-ariq-hilalbi/"
               target="_blank"
               rel="noreferrer"
               aria-label="LinkedIn profile"
@@ -170,7 +169,7 @@ export function Navbar({
               <Linkedin className="w-3.5 h-3.5 text-white" />
             </a>
             <a
-              href="https://instagram.com/aldenprabaswara"
+              href="https://instagram.com/qiraayyy"
               target="_blank"
               rel="noreferrer"
               aria-label="Instagram profile"
@@ -186,7 +185,7 @@ export function Navbar({
             className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-[#18181A] text-[#FAF8F3] text-xs font-semibold tracking-tight hover:bg-[#2F45FF] transition-colors whitespace-nowrap shrink-0 cursor-pointer"
           >
             <Mail className="w-3.5 h-3.5" />
-            <span>Hire Alden</span>
+            <span>Hire Ariq</span>
           </button>
 
           <button
