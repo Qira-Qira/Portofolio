@@ -61,7 +61,7 @@ export function CertificateModal({
                 </div>
                 <p className="text-xs font-mono-code text-[#575650] mb-1">AWARDED TO</p>
                 <h3 className="text-xl font-extrabold text-[#18181A] mb-2">
-                  Muhammad Alden Prabaswara
+                  Nawaf Ariq Hilalbi
                 </h3>
                 <p className="text-sm font-bold text-[#18181A] mb-4">{certificate.title}</p>
                 <div className="pt-3 border-t border-[#18181A]/15 flex items-center justify-between text-[10px] font-mono-code text-[#575650]">
