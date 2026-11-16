@@ -24,7 +24,6 @@ export function HeroSection({ onOpenContact, onSeeWork }: HeroSectionProps) {
           hi, i&apos;m
         </motion.p>
 
-        {/* Figma-boxed Pixel ALDEN with floating sticker tags */}
         <motion.div
           initial={{ opacity: 0, scale: 0.94 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -75,7 +74,7 @@ export function HeroSection({ onOpenContact, onSeeWork }: HeroSectionProps) {
           </motion.span>
 
           <div className="w-[240px] sm:w-[390px] md:w-[460px]">
-            <PixelWordmark word="ALDEN" color="#18181A" className="w-full h-auto" />
+            <PixelWordmark word="ARIQ" color="#18181A" className="w-full h-auto" />
           </div>
         </motion.div>
 
@@ -136,7 +135,7 @@ export function HeroSection({ onOpenContact, onSeeWork }: HeroSectionProps) {
           transition={{ delay: 0.4, duration: 0.5 }}
           className="text-sm sm:text-base text-[#575650] max-w-[540px] leading-relaxed mb-9"
         >
-          Alden builds websites, web applications, and Android mobile applications at Niconsite, with
+          Ariq builds websites, web applications, and Android mobile applications at Niconsite, with
           a focus on software that is reliable, maintainable, and ready to ship.
         </motion.p>
 
@@ -153,7 +152,7 @@ export function HeroSection({ onOpenContact, onSeeWork }: HeroSectionProps) {
             className="inline-flex items-center gap-2 px-5 py-3 rounded-lg bg-[#18181A] text-[#FAF8F3] text-xs font-mono-code font-bold tracking-wider uppercase border-2 border-[#18181A] shadow-[3px_3px_0px_#F4C542] hover:-translate-y-0.5 active:translate-y-0 transition-transform cursor-pointer"
           >
             <Mail className="w-3.5 h-3.5" />
-            <span>HIRE ALDEN</span>
+            <span>HIRE ARIQ</span>
           </button>
           <button
             type="button"
