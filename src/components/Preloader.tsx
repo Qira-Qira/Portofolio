@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
-import { ApMonogram, PinkStarburst } from './Graphics';
+import { AQMonogram, PinkStarburst } from './Graphics';
 import { formatCounter } from '../utils/portfolioLogic';
 
 const COLOR_BLOCKS = [
@@ -106,7 +106,7 @@ export function Preloader({
                 <div className="absolute top-0 left-0 w-12 h-4 bg-[#D8AA29] rounded-t-md border-2 border-[#18181A]" />
                 {/* Folder body */}
                 <div className="absolute top-2.5 inset-x-0 bottom-0 bg-[#F4C542] rounded-lg border-2 border-[#18181A] shadow-[4px_4px_0px_#000000] flex items-center justify-center">
-                  <ApMonogram className="w-12 h-9" color="#18181A" />
+                  <AQMonogram className="w-12 h-9" color="#18181A" />
                 </div>
               </div>
             </motion.div>
@@ -117,7 +117,7 @@ export function Preloader({
               transition={{ delay: 0.15, duration: 0.4 }}
               className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white"
             >
-              Alden<span className="text-[#F4C542]">.</span>
+              Ariq<span className="text-[#F4C542]">.</span>
             </motion.div>
           </div>
 
@@ -125,7 +125,7 @@ export function Preloader({
           <div className="flex items-end justify-between gap-4">
             <div>
               <p className="text-[10px] sm:text-xs font-mono-code tracking-[0.2em] text-[#FAF8F3]/60 uppercase mb-2.5">
-                ALDEN PRABASWARA
+                NAWAF ARIQ HILALBI
               </p>
               <div className="flex items-center gap-1.5">
                 {COLOR_BLOCKS.map((hex, i) => (
