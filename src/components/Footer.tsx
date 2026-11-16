@@ -1,5 +1,5 @@
 import { ArrowUp, ArrowUpRight, Github, Linkedin } from 'lucide-react';
-import { ApMonogram, PixelWordmark, TornEdge } from './Graphics';
+import { AQMonogram, PixelWordmark, TornEdge } from './Graphics';
 import { ServiceSlug } from '../data/portfolioData';
 
 interface FooterProps {
@@ -31,13 +31,13 @@ export function Footer({
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-10 pb-16 border-b border-white/10">
             {/* Brand Summary */}
             <div className="lg:col-span-5">
-              <ApMonogram className="w-10 h-8 mb-4" color="#FAF8F3" />
+              <AQMonogram className="w-10 h-8 mb-4" color="#FAF8F3" />
               <p className="text-sm text-white/65 max-w-[270px] leading-relaxed mb-5">
                 Websites, web applications, and Android mobile applications that ship.
               </p>
               <div className="flex items-center gap-2.5">
                 <a
-                  href="https://github.com/aldenprabaswara"
+                  href="https://github.com/QIra-Qira"
                   target="_blank"
                   rel="noreferrer"
                   aria-label="GitHub"
@@ -46,7 +46,7 @@ export function Footer({
                   <Github className="w-3.5 h-3.5" />
                 </a>
                 <a
-                  href="https://linkedin.com/in/aldenprabaswara"
+                  href="https://www.linkedin.com/in/nawaf-ariq-hilalbi"
                   target="_blank"
                   rel="noreferrer"
                   aria-label="LinkedIn"
@@ -164,7 +164,7 @@ export function Footer({
               <ul className="space-y-2.5 text-sm text-white/80">
                 <li>
                   <a
-                    href="https://github.com/aldenprabaswara"
+                    href="https://github.com/Qira-Qira"
                     target="_blank"
                     rel="noreferrer"
                     className="hover:text-[#F4C542] transition-colors"
@@ -174,7 +174,7 @@ export function Footer({
                 </li>
                 <li>
                   <a
-                    href="https://linkedin.com/in/aldenprabaswara"
+                    href="https://www.linkedin.com/in/nawaf-ariq-hilalbi/"
                     target="_blank"
                     rel="noreferrer"
                     className="hover:text-[#F4C542] transition-colors"
@@ -184,10 +184,10 @@ export function Footer({
                 </li>
                 <li>
                   <a
-                    href="mailto:aldenprabaswara@gmail.com"
+                    href="mailto:nawaf.hilalbi25@student.uisi.ac.id"
                     className="hover:text-[#F4C542] transition-colors break-all"
                   >
-                    aldenprabaswara@gmail.com
+                    nawaf.hilalbi25@student.uisi.ac.id
                   </a>
                 </li>
                 <li>
@@ -204,15 +204,14 @@ export function Footer({
             </div>
           </div>
 
-          {/* Giant Pixel ALDEN Wordmark */}
           <div className="py-10 sm:py-14">
-            <PixelWordmark word="ALDEN" color="#FAF8F3" className="w-full h-auto" />
+            <PixelWordmark word="ARIQ" color="#FAF8F3" className="w-full h-auto" />
           </div>
 
           {/* Bottom Legal Row */}
           <div className="pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] font-mono-code text-white/45">
-            <span>© 2026 Muhammad Alden Prabaswara</span>
-            <span>Designed and built by Alden at Niconsite · aldenprabaswara.com</span>
+            <span>© 2026 Nawaf Ariq Hilalbi</span>
+            <span>Designed and built by Nawaf Ariq Hilalbi</span>
             <button
               type="button"
               onClick={scrollToTop}
