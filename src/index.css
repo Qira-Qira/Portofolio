@@ -1,0 +1,128 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-paper: #faf8f3;
+    --ink: #18181a;
+    --ink-muted: #575650;
+    --yellow: #f4c542;
+    --mint: #aeebd2;
+    --pink: #f43f8e;
+    --blue: #2f45ff;
+    --charcoal: #161618;
+  }
+
+  html {
+    font-family: "Plus Jakarta Sans", "DM Sans", system-ui, -apple-system, sans-serif;
+    background-color: var(--bg-paper);
+    color: var(--ink);
+    overflow-x: clip;
+  }
+
+  body {
+    overflow-x: clip;
+  }
+}
+
+.font-display {
+  font-family: "Plus Jakarta Sans", "DM Sans", sans-serif;
+}
+
+.font-pixel {
+  font-family: "Silkscreen", monospace;
+}
+
+.font-mono-code {
+  font-family: "JetBrains Mono", monospace;
+}
+
+.font-editorial-italic {
+  font-family: "Instrument Serif", Georgia, serif;
+}
+
+/* Ruled notebook paper background */
+.bg-ruled-paper {
+  background-color: #faf8f3;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0px,
+    transparent 35px,
+    rgba(24, 24, 26, 0.055) 35px,
+    rgba(24, 24, 26, 0.055) 36px
+  );
+}
+
+.bg-dark-ruled {
+  background-color: #161618;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0px,
+    transparent 35px,
+    rgba(255, 255, 255, 0.045) 35px,
+    rgba(255, 255, 255, 0.045) 36px
+  );
+}
+
+/* Neo-brutalist crisp card styles */
+.brutal-card {
+  border: 2px solid #18181a;
+  box-shadow: 4px 4px 0px #18181a;
+}
+
+.brutal-card-sm {
+  border: 1.5px solid #18181a;
+  box-shadow: 2.5px 2.5px 0px #18181a;
+}
+
+.brutal-card-lg {
+  border: 2px solid #18181a;
+  box-shadow: 6px 6px 0px #18181a;
+}
+
+/* Marquee animations */
+@keyframes marquee-left {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes marquee-right {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+.animate-marquee-left {
+  animation: marquee-left 28s linear infinite;
+}
+
+.animate-marquee-right {
+  animation: marquee-right 32s linear infinite;
+}
+
+.marquee-paused:hover .animate-marquee-left,
+.marquee-paused:hover .animate-marquee-right {
+  animation-play-state: paused;
+}
+
+/* Custom subtle scrollbar for horizontal project showcase */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee-left,
+  .animate-marquee-right {
+    animation: none;
+  }
+}
