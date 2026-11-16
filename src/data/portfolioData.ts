@@ -107,7 +107,7 @@ export const STORY_STEPS: StoryStep[] = [
   {
     number: '01',
     kicker: 'BIO',
-    text: "I'm Muhammad Alden Prabaswara, a full-stack developer at Niconsite and an Informatics Engineering graduate of FILKOM, Universitas Brawijaya. I build websites, web applications, and Android mobile applications that solve real problems for real people.",
+    text: "I'm Nawaf Ariq Hilalbi, a full-stack developer at Niconsite and an Informatics Engineering graduate of FILKOM, Universitas Brawijaya. I build websites, web applications, and Android mobile applications that solve real problems for real people.",
   },
   {
     number: '02',
@@ -159,7 +159,7 @@ export const EXPERIENCE_PHOTOS: ExperiencePhoto[] = [
     id: 'handover',
     caption: 'CERTIFICATION PRESENTATION',
     src: '/src/assets/images/internship_handover_1794749717729.jpg',
-    alt: 'Alden receiving internship certification in the office',
+    alt: 'Ariq receiving internship certification in the office',
   },
   {
     id: 'award',
