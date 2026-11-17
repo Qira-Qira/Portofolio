@@ -107,22 +107,22 @@ export const STORY_STEPS: StoryStep[] = [
   {
     number: '01',
     kicker: 'BIO',
-    text: "I'm Nawaf Ariq Hilalbi, a full-stack developer at Niconsite and an Informatics Engineering graduate of FILKOM, Universitas Brawijaya. I build websites, web applications, and Android mobile applications that solve real problems for real people.",
+    text: "Halo, saya Nawaf Ariq Hilalbi. Karya saya berada di titik temu antara rekayasa perangkat lunak dan seni visual—yang terangkum dalam tiga kata: Code. Capture. Create. Sebagai Web & Mobile Developer, saya berfokus membangun aplikasi yang fungsional, responsif, dan nyaman digunakan. Di sisi lain, sebagai Fotografer & Editor, saya mengolah cahaya, komposisi, serta alur visual untuk menghasilkan foto dan video yang bercerita. Kombinasi ini membuat saya tidak hanya mampu merancang sistem dari balik layar, tetapi juga memastikan setiap elemen visual di dalamnya tampil maksimal—mulai dari baris kode pertama hingga final render.",
   },
   {
     number: '02',
     kicker: 'HOW I WORK',
-    text: "I don't learn by reading. I learn by shipping. Every project starts with a problem worth solving and ends with something actually running in production.",
+    text: "Saya tidak belajar hanya dengan membaca teori—saya belajar dengan langsung mengeksekusi dan merilis karya. Di dunia Web & Mobile Development, setiap proyek dimulai dari masalah nyata yang butuh solusi, dan harus berakhir sebagai sistem yang benar-benar berjalan di production, bukan sekadar kode yang berhenti di komputer lokal. Prinsip yang sama saya bawa ke balik lensa dan meja editing. Sebagai Fotografer & Editor, bagi saya proses belum selesai sampai cahaya tertangkap dengan komposisi yang tepat, alur cerita tersusun rapi di timeline, dan final render siap dinikmati audiens.",
   },
   {
     number: '03',
     kicker: 'WHAT I BUILD',
-    text: "My work spans across domains and scales. I've shipped a consumer mobile app, business-facing web applications, an internal dashboard, and client-facing websites. Each one required a different set of decisions, and I made every one of them deliberately.",
+    text: "Karya saya merentang di berbagai domain dan skala. Saya telah merilis aplikasi mobile untuk konsumen, aplikasi web bisnis, dasbor internal, situs web klien—hingga produksi fotografi komersial dan editing video. Setiap proyek menuntut rangkaian keputusan yang berbeda, dan saya mengambil setiap keputusan tersebut secara sadar dan terukur.",
   },
   {
     number: '04',
-    kicker: 'STACK',
-    text: 'I work primarily with Next.js and TypeScript on the web, and Kotlin with Jetpack Compose on Android. I care deeply about architecture, clean interfaces, and software that actually holds up under real use.',
+    kicker: 'TECH STACK',
+    text: 'Web Development: HTML, CSS, JavaScript, Bootstrap, Tailwind, PHP, Laravel, CodeIgniter 4, Express JS, React JS, Node JS, Next JS, TypeScript, GitHub (CI/CD), MySQL, MongoDB, PostgreSQL, Motoko\nMobile Development: Java, Dart, Flutter, Android Studio\nPhotography & Editing: Figma, Canva, CapCut',
   },
 ];
 
@@ -139,7 +139,7 @@ export const EXPERIENCE_ROLES: ExperienceRole[] = [
     title: 'Web Developer',
     company: 'PT. Niconsite',
     type: 'INTERNSHIP',
-    location: 'MALANG',
+    location: 'SURABAYA, INDONESIA',
     mode: 'HYBRID',
     summary:
       'Built a business operations dashboard from scratch for a data consulting firm, from the database and access rules to the interface the team uses every day.',
