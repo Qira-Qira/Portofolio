@@ -2,7 +2,7 @@ import { useRef } from 'react';
 import { motion, MotionValue, useScroll, useTransform } from 'motion/react';
 import { PinkStarburst, TornEdge, YellowSquiggle } from './Graphics';
 
-const STATEMENT_WORDS = 'At my workspace, I build software to serve long-term impact.'.split(' ');
+const STATEMENT_WORDS = 'Saya mengembangkan sebuah aplikasi perangkat lunak dan pembuatan video maupun foto untuk editing.'.split(' ');
 
 function ScrollWord({
   word,
