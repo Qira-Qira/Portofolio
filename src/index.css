@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
 
 @layer base {
   :root {
@@ -19,8 +20,15 @@
     overflow-x: clip;
   }
 
+  html.dark {
+    background-color: #161618;
+    color: #faf8f3;
+  }
+
   body {
     overflow-x: clip;
+    transition: background-color 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+      color 0.35s cubic-bezier(0.16, 1, 0.3, 1);
   }
 }
 
@@ -40,7 +48,7 @@
   font-family: "Instrument Serif", Georgia, serif;
 }
 
-/* Ruled notebook paper background */
+/* Ruled notebook paper background (light + dark aware) */
 .bg-ruled-paper {
   background-color: #faf8f3;
   background-image: repeating-linear-gradient(
@@ -49,6 +57,18 @@
     transparent 35px,
     rgba(24, 24, 26, 0.055) 35px,
     rgba(24, 24, 26, 0.055) 36px
+  );
+  transition: background-color 0.35s ease;
+}
+
+html.dark .bg-ruled-paper {
+  background-color: #161618;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0px,
+    transparent 35px,
+    rgba(255, 255, 255, 0.055) 35px,
+    rgba(255, 255, 255, 0.055) 36px
   );
 }
 
@@ -77,6 +97,12 @@
 .brutal-card-lg {
   border: 2px solid #18181a;
   box-shadow: 6px 6px 0px #18181a;
+}
+
+html.dark .brutal-card,
+html.dark .brutal-card-lg {
+  border-color: rgba(250, 248, 243, 0.88);
+  box-shadow: 4px 4px 0px rgba(244, 197, 66, 0.85);
 }
 
 /* Marquee animations */
@@ -111,7 +137,6 @@
   animation-play-state: paused;
 }
 
-/* Custom subtle scrollbar for horizontal project showcase */
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
