@@ -64,15 +64,15 @@ export function ContactModal({ open, onClose }: ContactModalProps) {
             exit={{ opacity: 0, scale: 0.94, y: 12 }}
             transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
             onClick={(e) => e.stopPropagation()}
-            className="w-full max-w-[480px] bg-white brutal-card-lg rounded-2xl p-6 sm:p-8 relative"
+            className="w-full max-w-[480px] bg-white dark:bg-[#1F1F24] brutal-card-lg rounded-2xl p-6 sm:p-8 relative"
           >
             <button
               type="button"
               onClick={onClose}
               aria-label="Close contact dialog"
-              className="absolute top-5 right-5 w-9 h-9 rounded-full border-2 border-[#18181A] bg-[#FAF8F3] flex items-center justify-center hover:bg-[#F4C542] transition-colors cursor-pointer"
+              className="absolute top-5 right-5 w-9 h-9 rounded-full border-2 border-[#18181A] dark:border-white/75 bg-[#FAF8F3] dark:bg-[#2A2A30] flex items-center justify-center hover:bg-[#F4C542] transition-colors cursor-pointer"
             >
-              <X className="w-4 h-4 text-[#18181A]" />
+              <X className="w-4 h-4 text-[#18181A] dark:text-[#FAF8F3]" />
             </button>
 
             <span className="inline-block px-2.5 py-0.5 bg-[#F4C542] text-[#18181A] text-[10px] font-mono-code font-bold tracking-widest uppercase border border-[#18181A] mb-3">
@@ -81,7 +81,7 @@ export function ContactModal({ open, onClose }: ContactModalProps) {
 
             <h2
               id="contact-modal-title"
-              className="text-2xl sm:text-3xl font-extrabold tracking-tight text-[#18181A] mb-6 pr-8"
+              className="text-2xl sm:text-3xl font-extrabold tracking-tight text-[#18181A] dark:text-[#FAF8F3] mb-6 pr-8"
             >
               Let&apos;s build something together.
             </h2>
@@ -92,11 +92,18 @@ export function ContactModal({ open, onClose }: ContactModalProps) {
                   <CheckCircle2 className="w-6 h-6 text-[#18181A]" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-extrabold text-[#18181A]">Message received!</h3>
-                  <p className="text-sm text-[#575650] mt-1">
-                    Thanks, <span className="font-semibold text-[#18181A]">{form.name}</span>.
-                    Ariq will reply to{' '}
-                    <span className="font-mono-code text-xs text-[#18181A]">{form.email}</span>{' '}
+                  <h3 className="text-lg font-extrabold text-[#18181A] dark:text-[#FAF8F3]">
+                    Message received!
+                  </h3>
+                  <p className="text-sm text-[#575650] dark:text-[#FAF8F3]/70 mt-1">
+                    Thanks,{' '}
+                    <span className="font-semibold text-[#18181A] dark:text-[#FAF8F3]">
+                      {form.name}
+                    </span>
+                    . Ariq will reply to{' '}
+                    <span className="font-mono-code text-xs text-[#18181A] dark:text-[#F4C542]">
+                      {form.email}
+                    </span>{' '}
                     within 24 hours.
                   </p>
                 </div>
@@ -104,14 +111,14 @@ export function ContactModal({ open, onClose }: ContactModalProps) {
                   <button
                     type="button"
                     onClick={handleReset}
-                    className="px-4 py-2 rounded-lg border-2 border-[#18181A] text-xs font-mono-code font-bold uppercase hover:bg-[#FAF8F3] cursor-pointer"
+                    className="px-4 py-2 rounded-lg border-2 border-[#18181A] dark:border-white/75 text-xs font-mono-code font-bold uppercase text-[#18181A] dark:text-[#FAF8F3] hover:bg-[#FAF8F3] dark:hover:bg-white/10 cursor-pointer"
                   >
                     Send Another
                   </button>
                   <button
                     type="button"
                     onClick={onClose}
-                    className="px-4 py-2 rounded-lg bg-[#18181A] text-white text-xs font-mono-code font-bold uppercase cursor-pointer"
+                    className="px-4 py-2 rounded-lg bg-[#18181A] dark:bg-[#F4C542] text-white dark:text-[#18181A] text-xs font-mono-code font-bold uppercase cursor-pointer"
                   >
                     Done
                   </button>
@@ -122,7 +129,7 @@ export function ContactModal({ open, onClose }: ContactModalProps) {
                 <div>
                   <label
                     htmlFor="contact-name"
-                    className="block text-[10px] font-mono-code font-bold tracking-[0.14em] uppercase text-[#575650] mb-1.5"
+                    className="block text-[10px] font-mono-code font-bold tracking-[0.14em] uppercase text-[#575650] dark:text-[#FAF8F3]/65 mb-1.5"
                   >
                     YOUR NAME
                   </label>
@@ -132,7 +139,7 @@ export function ContactModal({ open, onClose }: ContactModalProps) {
                     placeholder="Full name"
                     value={form.name}
                     onChange={(e) => setForm({ ...form, name: e.target.value })}
-                    className="w-full px-3.5 py-2.5 rounded-lg border-2 border-[#18181A] bg-[#FAF8F3] text-sm text-[#18181A] focus:outline-none focus:bg-white focus:ring-2 focus:ring-[#F4C542]"
+                    className="w-full px-3.5 py-2.5 rounded-lg border-2 border-[#18181A] dark:border-white/75 bg-[#FAF8F3] dark:bg-[#161618] text-sm text-[#18181A] dark:text-[#FAF8F3] placeholder:text-[#575650]/70 dark:placeholder:text-[#FAF8F3]/40 focus:outline-none focus:bg-white dark:focus:bg-[#1A1A1F] focus:ring-2 focus:ring-[#F4C542]"
                   />
                   {errors.name && (
                     <p className="text-xs text-[#E11D48] font-medium mt-1">{errors.name}</p>
@@ -142,7 +149,7 @@ export function ContactModal({ open, onClose }: ContactModalProps) {
                 <div>
                   <label
                     htmlFor="contact-email"
-                    className="block text-[10px] font-mono-code font-bold tracking-[0.14em] uppercase text-[#575650] mb-1.5"
+                    className="block text-[10px] font-mono-code font-bold tracking-[0.14em] uppercase text-[#575650] dark:text-[#FAF8F3]/65 mb-1.5"
                   >
                     EMAIL
                   </label>
@@ -152,7 +159,7 @@ export function ContactModal({ open, onClose }: ContactModalProps) {
                     placeholder="you@company.com"
                     value={form.email}
                     onChange={(e) => setForm({ ...form, email: e.target.value })}
-                    className="w-full px-3.5 py-2.5 rounded-lg border-2 border-[#18181A] bg-[#FAF8F3] text-sm text-[#18181A] focus:outline-none focus:bg-white focus:ring-2 focus:ring-[#F4C542]"
+                    className="w-full px-3.5 py-2.5 rounded-lg border-2 border-[#18181A] dark:border-white/75 bg-[#FAF8F3] dark:bg-[#161618] text-sm text-[#18181A] dark:text-[#FAF8F3] placeholder:text-[#575650]/70 dark:placeholder:text-[#FAF8F3]/40 focus:outline-none focus:bg-white dark:focus:bg-[#1A1A1F] focus:ring-2 focus:ring-[#F4C542]"
                   />
                   {errors.email && (
                     <p className="text-xs text-[#E11D48] font-medium mt-1">{errors.email}</p>
@@ -162,7 +169,7 @@ export function ContactModal({ open, onClose }: ContactModalProps) {
                 <div>
                   <label
                     htmlFor="contact-message"
-                    className="block text-[10px] font-mono-code font-bold tracking-[0.14em] uppercase text-[#575650] mb-1.5"
+                    className="block text-[10px] font-mono-code font-bold tracking-[0.14em] uppercase text-[#575650] dark:text-[#FAF8F3]/65 mb-1.5"
                   >
                     MESSAGE
                   </label>
@@ -172,7 +179,7 @@ export function ContactModal({ open, onClose }: ContactModalProps) {
                     placeholder="Tell me about your project, timeline, or what you are trying to ship..."
                     value={form.message}
                     onChange={(e) => setForm({ ...form, message: e.target.value })}
-                    className="w-full px-3.5 py-2.5 rounded-lg border-2 border-[#18181A] bg-[#FAF8F3] text-sm text-[#18181A] focus:outline-none focus:bg-white focus:ring-2 focus:ring-[#F4C542] resize-none"
+                    className="w-full px-3.5 py-2.5 rounded-lg border-2 border-[#18181A] dark:border-white/75 bg-[#FAF8F3] dark:bg-[#161618] text-sm text-[#18181A] dark:text-[#FAF8F3] placeholder:text-[#575650]/70 dark:placeholder:text-[#FAF8F3]/40 focus:outline-none focus:bg-white dark:focus:bg-[#1A1A1F] focus:ring-2 focus:ring-[#F4C542] resize-none"
                   />
                   {errors.message && (
                     <p className="text-xs text-[#E11D48] font-medium mt-1">{errors.message}</p>
@@ -181,7 +188,7 @@ export function ContactModal({ open, onClose }: ContactModalProps) {
 
                 <button
                   type="submit"
-                  className="w-full py-3 rounded-lg bg-[#18181A] text-white text-xs font-mono-code font-bold tracking-[0.14em] uppercase hover:bg-[#2F45FF] transition-colors cursor-pointer"
+                  className="w-full py-3 rounded-lg bg-[#18181A] dark:bg-[#F4C542] text-white dark:text-[#18181A] text-xs font-mono-code font-bold tracking-[0.14em] uppercase hover:bg-[#2F45FF] dark:hover:bg-white transition-colors cursor-pointer"
                 >
                   SEND MESSAGE
                 </button>
