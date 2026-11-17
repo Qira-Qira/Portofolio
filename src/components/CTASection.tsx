@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { motion } from 'motion/react';
 import { Check, Copy, Mail } from 'lucide-react';
 import { PaperPlaneDoodle, PinkStarburst } from './Graphics';
 
@@ -21,7 +22,7 @@ export function CTASection({ onOpenContact }: { onOpenContact: () => void }) {
   return (
     <section className="relative overflow-hidden bg-[#2F45FF]">
       {/* Diagonal Yellow Marquee Strip */}
-      <div className="bg-[#FAF8F3] pt-3 pb-2 overflow-hidden">
+      <div className="bg-[#FAF8F3] dark:bg-[#161618] pt-3 pb-2 overflow-hidden transition-colors duration-300">
         <div className="w-[108%] -ml-[4%] bg-[#F4C542] border-y-2 border-[#18181A] py-2 -rotate-1 overflow-hidden">
           <div className="flex w-max animate-marquee-left">
             {[...ribbonItems, ...ribbonItems].map((text, idx) => (
@@ -40,32 +41,78 @@ export function CTASection({ onOpenContact }: { onOpenContact: () => void }) {
       {/* Cobalt Blue CTA Block */}
       <div className="bg-[#2F45FF] text-white py-24 sm:py-32 px-5 sm:px-8 relative">
         <div className="max-w-[960px] mx-auto text-center relative">
-          {/* Decorative accents */}
-          <div className="hidden sm:block absolute left-4 top-1/2 -translate-y-1/2">
+          {/* Decorative animated accents */}
+          <motion.div
+            animate={{ rotate: [0, 90, 0] }}
+            transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
+            className="hidden sm:block absolute left-4 top-1/2 -translate-y-1/2"
+          >
             <PinkStarburst className="w-7 h-7" />
-          </div>
-          <div className="hidden sm:block absolute right-6 top-2">
+          </motion.div>
+          <motion.div
+            animate={{ y: [0, -8, 0], x: [0, 4, 0] }}
+            transition={{ duration: 3.5, repeat: Infinity, ease: 'easeInOut' }}
+            className="hidden sm:block absolute right-6 top-2"
+          >
             <PaperPlaneDoodle className="w-7 h-7 text-white/75" color="#FFFFFF" />
-          </div>
+          </motion.div>
 
-          <p className="text-[11px] font-mono-code font-bold tracking-[0.18em] uppercase text-white/75 mb-5">
+          <motion.p
+            initial={{ opacity: 0, y: 18 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.4 }}
+            transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
+            className="text-[11px] font-mono-code font-bold tracking-[0.18em] uppercase text-white/75 mb-5"
+          >
             TAKING NEW PROJECTS
-          </p>
+          </motion.p>
 
           <h2 className="text-5xl sm:text-7xl font-extrabold tracking-[-0.04em] leading-[1.02] mb-10">
-            <span className="text-white block">Let&apos;s build</span>
-            <span className="text-[#F4C542] block">something</span>
-            <span className="text-white block">together.</span>
+            <span className="block overflow-hidden">
+              <motion.span
+                initial={{ opacity: 0, y: 28 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.4 }}
+                transition={{ delay: 0.06, duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
+                className="text-white block"
+              >
+                Let&apos;s build
+              </motion.span>
+            </span>
+            <span className="block overflow-hidden">
+              <motion.span
+                initial={{ opacity: 0, y: 28 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.4 }}
+                transition={{ delay: 0.14, duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
+                className="text-[#F4C542] block"
+              >
+                something
+              </motion.span>
+            </span>
+            <span className="block overflow-hidden">
+              <motion.span
+                initial={{ opacity: 0, y: 28 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.4 }}
+                transition={{ delay: 0.22, duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
+                className="text-white block"
+              >
+                together.
+              </motion.span>
+            </span>
           </h2>
 
-          <button
+          <motion.button
             type="button"
             onClick={onOpenContact}
-            className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-lg bg-[#18181A] text-white text-xs font-mono-code font-bold tracking-wider uppercase border-2 border-[#18181A] shadow-[4px_4px_0px_#F4C542] hover:-translate-y-0.5 transition-transform cursor-pointer mb-8"
+            whileHover={{ y: -3 }}
+            whileTap={{ y: 0 }}
+            className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-lg bg-[#18181A] text-white text-xs font-mono-code font-bold tracking-wider uppercase border-2 border-[#18181A] shadow-[4px_4px_0px_#F4C542] transition-colors hover:bg-white hover:text-[#18181A] cursor-pointer mb-8"
           >
             <Mail className="w-4 h-4" />
             <span>START A PROJECT</span>
-          </button>
+          </motion.button>
 
           <div>
             <p className="text-[10px] font-mono-code tracking-[0.16em] uppercase text-white/60 mb-1.5">
