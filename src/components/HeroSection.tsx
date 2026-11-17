@@ -56,7 +56,7 @@ export function HeroSection({ ready, onOpenContact, onSeeWork }: HeroSectionProp
             }}
             className="inline-block absolute -top-3 left-1 sm:-top-5 sm:-left-16 px-1.5 sm:px-2.5 py-0.5 sm:py-1 bg-[#DCE8FF] border border-[#18181A] shadow-[2px_2px_0px_#18181A] text-[7px] sm:text-[10px] font-mono-code font-bold tracking-[0.04em] sm:tracking-wider uppercase whitespace-nowrap text-[#18181A]"
           >
-            FULL-STACK DEV
+            WEB DEVELOPMENT
           </motion.span>
 
           <motion.span
@@ -73,7 +73,7 @@ export function HeroSection({ ready, onOpenContact, onSeeWork }: HeroSectionProp
             }}
             className="inline-block absolute -top-3 right-1 sm:-top-5 sm:-right-20 px-1.5 sm:px-2.5 py-0.5 sm:py-1 bg-[#F4C542] border border-[#18181A] shadow-[2px_2px_0px_#18181A] text-[7px] sm:text-[10px] font-mono-code font-bold tracking-[0.04em] sm:tracking-wider uppercase whitespace-nowrap text-[#18181A]"
           >
-            MEET THE DETAILS
+            MOBILE DEV
           </motion.span>
 
           <motion.span
@@ -90,7 +90,7 @@ export function HeroSection({ ready, onOpenContact, onSeeWork }: HeroSectionProp
             }}
             className="inline-block absolute -bottom-3 left-1 sm:-bottom-4 sm:-left-12 px-1.5 sm:px-2.5 py-0.5 sm:py-1 bg-[#FFE2EC] border border-[#18181A] shadow-[2px_2px_0px_#18181A] text-[7px] sm:text-[10px] font-mono-code font-bold tracking-[0.04em] sm:tracking-wider uppercase whitespace-nowrap text-[#18181A]"
           >
-            PIXEL PERFECT
+            EDITING
           </motion.span>
 
           <motion.span
@@ -107,7 +107,7 @@ export function HeroSection({ ready, onOpenContact, onSeeWork }: HeroSectionProp
             }}
             className="inline-block absolute -bottom-3 right-1 sm:-bottom-4 sm:-right-10 px-1.5 sm:px-2.5 py-0.5 sm:py-1 bg-[#AEEBD2] border border-[#18181A] shadow-[2px_2px_0px_#18181A] text-[7px] sm:text-[10px] font-mono-code font-bold tracking-[0.04em] sm:tracking-wider uppercase whitespace-nowrap text-[#18181A]"
           >
-            SHIP IT
+            PHOTOGRAPHER
           </motion.span>
 
           <div className="w-[240px] sm:w-[390px] md:w-[460px] text-[#18181A] dark:text-[#FAF8F3]">
@@ -145,7 +145,7 @@ export function HeroSection({ ready, onOpenContact, onSeeWork }: HeroSectionProp
               transition={{ delay: 0.42, duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
               className="inline-block"
             >
-              I build platforms that{' '}
+              Building Digital Products.{' '}
               <motion.span
                 initial={{ scale: 0, rotate: -45 }}
                 animate={ready ? { scale: 1, rotate: 0 } : { scale: 0 }}
@@ -182,7 +182,7 @@ export function HeroSection({ ready, onOpenContact, onSeeWork }: HeroSectionProp
                   referrerPolicy="no-referrer"
                 />
               </motion.span>
-              ship, scale, and last.{' '}
+              Code, Capture, Create.{' '}
               <motion.span
                 initial={{ scale: 0, rotate: -90 }}
                 animate={ready ? { scale: 1, rotate: 0 } : { scale: 0 }}
@@ -215,8 +215,7 @@ export function HeroSection({ ready, onOpenContact, onSeeWork }: HeroSectionProp
           transition={{ delay: 0.65, duration: 0.5 }}
           className="text-sm sm:text-base text-[#575650] dark:text-[#FAF8F3]/70 max-w-[540px] leading-relaxed mb-9"
         >
-          Ariq builds websites, web applications, and Android mobile applications at Niconsite, with
-          a focus on software that is reliable, maintainable, and ready to ship.
+          I’m a Full-Stack & Mobile Developer with a photographer’s eye. I build fast, functional digital products and craft the visual stories that bring them to life.
         </motion.p>
 
         {/* Dual CTA Buttons */}
