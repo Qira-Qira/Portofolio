@@ -1,6 +1,7 @@
 import React from 'react';
+import { motion } from 'motion/react';
 
-export function AQMonogram({
+export function AMonogram({
   className = 'w-8 h-8',
   color = 'currentColor',
 }: {
@@ -9,20 +10,14 @@ export function AQMonogram({
 }) {
   return (
     <svg
-      viewBox="0 0 64 42"
+      viewBox="0 0 38 42"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       className={className}
       aria-hidden="true"
     >
-      <path d="M49 23L54 19L64 31L59 36Z" fill={color} />
       <path
         d="M3 36L15 6H23L35 36H27L24 28H14L11 36H3ZM16 22H22L19 14Z"
-        fill={color}
-        fillRule="evenodd"
-      />
-      <path
-        d="M45 6H54L61 13V27L54 34H45L38 27V13L45 6ZM47 12L44 15V25L47 28H52L55 25V15L52 12H47Z"
         fill={color}
         fillRule="evenodd"
       />
@@ -91,25 +86,29 @@ const PIXEL_LETTERS: Record<string, number[][]> = {
 
 export function PixelWordmark({
   word = 'ARIQ',
-  color = '#18181A',
+  color = 'currentColor',
   className = 'w-full h-auto',
+  animated = false,
+  delayBase = 0.15,
 }: {
   word?: string;
   color?: string;
   className?: string;
+  animated?: boolean;
+  delayBase?: number;
 }) {
   const letters = word.split('').map((ch) => PIXEL_LETTERS[ch] || PIXEL_LETTERS.A);
   const gap = 1;
   const totalCols = letters.reduce((acc, m) => acc + m[0].length, 0) + (letters.length - 1) * gap;
   const rows = 5;
 
-  const rects: { x: number; y: number }[] = [];
+  const rects: { x: number; y: number; colIdx: number }[] = [];
   let offsetX = 0;
   for (const matrix of letters) {
     for (let r = 0; r < rows; r++) {
       for (let c = 0; c < matrix[r].length; c++) {
         if (matrix[r][c] === 1) {
-          rects.push({ x: offsetX + c, y: r });
+          rects.push({ x: offsetX + c, y: r, colIdx: offsetX + c });
         }
       }
     }
@@ -126,16 +125,28 @@ export function PixelWordmark({
       role="img"
       aria-label={word}
     >
-      {rects.map((cell, idx) => (
-        <rect
-          key={idx}
-          x={cell.x}
-          y={cell.y}
-          width={1.02}
-          height={1.02}
-          fill={color}
-        />
-      ))}
+      {rects.map((cell, idx) =>
+        animated ? (
+          <motion.rect
+            key={idx}
+            x={cell.x}
+            y={cell.y}
+            width={1.02}
+            height={1.02}
+            fill={color}
+            initial={{ opacity: 0, scaleY: 0 }}
+            animate={{ opacity: 1, scaleY: 1 }}
+            transition={{
+              duration: 0.16,
+              delay: delayBase + cell.colIdx * 0.018 + cell.y * 0.012,
+              ease: [0.16, 1, 0.3, 1],
+            }}
+            style={{ transformOrigin: `${cell.x + 0.5}px ${cell.y + 1}px` }}
+          />
+        ) : (
+          <rect key={idx} x={cell.x} y={cell.y} width={1.02} height={1.02} fill={color} />
+        ),
+      )}
     </svg>
   );
 }
