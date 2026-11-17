@@ -1,6 +1,9 @@
 import { useCallback, useEffect, useState } from 'react';
+import { AnimatePresence, motion } from 'motion/react';
 import { Preloader } from './components/Preloader';
 import { CurtainTransition } from './components/CurtainTransition';
+import { ScrollProgressBar } from './components/ScrollProgressBar';
+import { BackToTopButton } from './components/BackToTopButton';
 import { AppRoute, Navbar } from './components/Navbar';
 import { HeroSection } from './components/HeroSection';
 import { DarkStatementSection } from './components/DarkStatementSection';
@@ -26,11 +29,30 @@ export default function App() {
     new URLSearchParams(window.location.search).get('autostart') === '1';
 
   const [preloaderDone, setPreloaderDone] = useState(skipIntro);
+  const [darkMode, setDarkMode] = useState(false);
+  const [themeSweepKey, setThemeSweepKey] = useState(0);
+  const [themeSweepVisible, setThemeSweepVisible] = useState(false);
+
   const [route, setRoute] = useState<AppRoute>({ type: 'home' });
   const [curtainLabel, setCurtainLabel] = useState<string | null>(null);
   const [curtainActive, setCurtainActive] = useState(false);
   const [contactOpen, setContactOpen] = useState(false);
   const [activeCertificate, setActiveCertificate] = useState<CertificateItem | null>(null);
+
+  useEffect(() => {
+    document.documentElement.classList.toggle('dark', darkMode);
+  }, [darkMode]);
+
+  const handleToggleTheme = useCallback(() => {
+    setThemeSweepKey((k) => k + 1);
+    setThemeSweepVisible(true);
+    setTimeout(() => {
+      setDarkMode((prev) => !prev);
+    }, 110);
+    setTimeout(() => {
+      setThemeSweepVisible(false);
+    }, 360);
+  }, []);
 
   const transitionTo = useCallback((nextRoute: AppRoute, label: string, scrollTarget?: string) => {
     setCurtainLabel(label);
@@ -54,7 +76,7 @@ export default function App() {
 
     setTimeout(() => {
       setCurtainActive(false);
-    }, 680);
+    }, 700);
   }, []);
 
   const handleNavigateHome = useCallback(
@@ -103,7 +125,7 @@ export default function App() {
   // Keep document title updated per route
   useEffect(() => {
     if (route.type === 'home') {
-      document.title = 'Ariq — Full-Stack & Android Developer';
+      document.title = 'Portofolio Ariq';
     } else if (route.type === 'service') {
       document.title = `${SERVICE_DETAILS[route.slug].title} — Ariq`;
     } else if (route.type === 'certificates') {
@@ -115,24 +137,43 @@ export default function App() {
 
   return (
     <div
-      className="min-h-screen flex flex-col bg-[#FAF8F3] text-[#18181A]"
+      className="min-h-screen flex flex-col bg-[#FAF8F3] dark:bg-[#161618] text-[#18181A] dark:text-[#FAF8F3] transition-colors duration-300"
       data-ready={preloaderDone ? 'true' : 'false'}
+      data-theme={darkMode ? 'dark' : 'light'}
     >
       <Preloader skip={skipIntro} onComplete={() => setPreloaderDone(true)} />
       <CurtainTransition label={curtainLabel} isActive={curtainActive} />
 
+      {/* Brief Horizontal Theme Wipe Overlay */}
+      <AnimatePresence>
+        {themeSweepVisible && (
+          <motion.div
+            key={themeSweepKey}
+            initial={{ scaleX: 0, originX: 0 }}
+            animate={{ scaleX: [0, 1, 0], originX: [0, 0, 1] }}
+            transition={{ duration: 0.34, ease: [0.16, 1, 0.3, 1] }}
+            className="fixed inset-0 z-[95] pointer-events-none bg-[#F4C542]/20 border-y-4 border-[#F4C542]"
+            aria-hidden="true"
+          />
+        )}
+      </AnimatePresence>
+
+      {route.type === 'home' && <ScrollProgressBar />}
+
       <Navbar
         route={route}
+        darkMode={darkMode}
+        onToggleTheme={handleToggleTheme}
         onNavigateHome={handleNavigateHome}
         onNavigateService={handleNavigateService}
         onNavigateCertificates={handleNavigateCertificates}
         onNavigateProjects={handleNavigateProjects}
-        onOpenContact={() => setContactOpen(true)}
       />
 
       {route.type === 'home' && (
         <main className="flex-1">
           <HeroSection
+            ready={preloaderDone}
             onOpenContact={() => setContactOpen(true)}
             onSeeWork={() => {
               document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
@@ -180,6 +221,8 @@ export default function App() {
         onNavigateProjects={handleNavigateProjects}
         onOpenContact={() => setContactOpen(true)}
       />
+
+      <BackToTopButton enabled={route.type === 'home' && preloaderDone} />
 
       <ContactModal open={contactOpen} onClose={() => setContactOpen(false)} />
       <CertificateModal
