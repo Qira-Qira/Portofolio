@@ -130,7 +130,7 @@ export function Preloader({
           {/* Top metadata */}
           <div className="flex items-center justify-between text-[11px] font-mono-code tracking-[0.22em] text-[#FAF8F3]/60 uppercase">
             <span>PORTFOLIO</span>
-            <span>MALANG, ID</span>
+            <span>SURABAYA, INDONESIA</span>
           </div>
 
           {/* Center Folder + Cycling Greeting */}
