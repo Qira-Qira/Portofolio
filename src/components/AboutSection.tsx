@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { motion } from 'motion/react';
+import { AnimatePresence, motion, MotionValue, useScroll, useTransform } from 'motion/react';
 import { ArrowRight } from 'lucide-react';
 import { STORY_STEPS, ServiceSlug, WHAT_I_BUILD_ITEMS } from '../data/portfolioData';
 import { MaskingTape } from './Graphics';
@@ -8,9 +8,92 @@ interface AboutSectionProps {
   onNavigateService: (slug: ServiceSlug) => void;
 }
 
+function StoryWord({
+  word,
+  index,
+  total,
+  progress,
+}: {
+  word: string;
+  index: number;
+  total: number;
+  progress: MotionValue<number>;
+}) {
+  const start = (index / total) * 0.65;
+  const end = Math.min(1, start + 0.28);
+  const opacity = useTransform(progress, [start, end], [0.22, 1]);
+
+  return (
+    <motion.span style={{ opacity }} className="inline-block mr-[0.25em]">
+      {word}
+    </motion.span>
+  );
+}
+
+function StoryParagraph({
+  step,
+  index,
+  isActive,
+  registerRef,
+  onSelect,
+}: {
+  step: (typeof STORY_STEPS)[number];
+  index: number;
+  isActive: boolean;
+  registerRef: (el: HTMLDivElement | null) => void;
+  onSelect: () => void;
+}) {
+  const localRef = useRef<HTMLDivElement | null>(null);
+  const { scrollYProgress } = useScroll({
+    target: localRef,
+    offset: ['start 0.88', 'center 0.45'],
+  });
+  const words = step.text.split(' ');
+
+  return (
+    <div
+      ref={(el) => {
+        localRef.current = el;
+        registerRef(el);
+      }}
+      onClick={onSelect}
+      className="cursor-default"
+    >
+      <p
+        className={`text-[11px] font-mono-code font-bold tracking-[0.16em] uppercase mb-3 transition-colors duration-300 ${
+          isActive
+            ? 'text-[#18181A] dark:text-[#F4C542]'
+            : 'text-[#575650] dark:text-[#FAF8F3]/50'
+        }`}
+      >
+        {step.number} / {step.kicker}
+      </p>
+      <p className="text-xl sm:text-[26px] font-semibold leading-[1.42] tracking-[-0.015em] text-[#18181A] dark:text-[#FAF8F3]">
+        {words.map((word, wIdx) => (
+          <StoryWord
+            key={`${step.number}-${wIdx}`}
+            word={word}
+            index={wIdx}
+            total={words.length}
+            progress={scrollYProgress}
+          />
+        ))}
+      </p>
+    </div>
+  );
+}
+
 export function AboutSection({ onNavigateService }: AboutSectionProps) {
   const [activeStep, setActiveStep] = useState(0);
+  const sectionRef = useRef<HTMLElement>(null);
   const stepRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+  const { scrollYProgress: sectionProgress } = useScroll({
+    target: sectionRef,
+    offset: ['start end', 'end start'],
+  });
+  const polaroidRotate = useTransform(sectionProgress, [0, 0.5, 1], [-2.5, -0.5, 1.8]);
+  const polaroidY = useTransform(sectionProgress, [0, 1], [10, -10]);
 
   useEffect(() => {
     const observers: IntersectionObserver[] = [];
@@ -40,12 +123,19 @@ export function AboutSection({ onNavigateService }: AboutSectionProps) {
   }, []);
 
   return (
-    <section id="about" className="bg-ruled-paper py-20 sm:py-28 px-5 sm:px-8">
+    <section
+      ref={sectionRef}
+      id="about"
+      className="bg-ruled-paper py-20 sm:py-28 px-5 sm:px-8"
+    >
       <div className="max-w-[1100px] mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           {/* Left Sticky Polaroid Portrait + Step Counter */}
           <div className="lg:col-span-5 lg:sticky lg:top-24">
-            <div className="relative max-w-[330px] mx-auto lg:mx-0">
+            <motion.div
+              style={{ rotate: polaroidRotate, y: polaroidY }}
+              className="relative max-w-[330px] mx-auto lg:mx-0"
+            >
               {/* Top Pink Masking Tape */}
               <MaskingTape
                 color="#F43F8E"
@@ -65,7 +155,7 @@ export function AboutSection({ onNavigateService }: AboutSectionProps) {
                 {/* Portrait Image */}
                 <div className="aspect-[3/4] w-full rounded-lg overflow-hidden border-2 border-[#18181A] bg-[#EAE6DC]">
                   <img
-                    src="/src/assets/images/alden_portrait_1794749716543.jpg"
+                    src="/assets/images/porto.jpg"
                     alt="Nawaf Ariq Hilalbi"
                     className="w-full h-full object-cover object-top"
                     referrerPolicy="no-referrer"
@@ -83,9 +173,21 @@ export function AboutSection({ onNavigateService }: AboutSectionProps) {
 
               {/* Active Step Indicator */}
               <div className="mt-8 flex items-center gap-4">
-                <span className="text-3xl font-extrabold font-mono-code tabular-nums text-[#18181A]">
-                  {STORY_STEPS[activeStep].number}
-                </span>
+                <div className="h-9 overflow-hidden flex items-center">
+                  <AnimatePresence mode="wait">
+                    <motion.span
+                      key={STORY_STEPS[activeStep].number}
+                      initial={{ y: 16, opacity: 0 }}
+                      animate={{ y: 0, opacity: 1 }}
+                      exit={{ y: -16, opacity: 0 }}
+                      transition={{ duration: 0.22, ease: [0.16, 1, 0.3, 1] }}
+                      className="text-3xl font-extrabold font-mono-code tabular-nums text-[#18181A] dark:text-[#FAF8F3] inline-block"
+                    >
+                      {STORY_STEPS[activeStep].number}
+                    </motion.span>
+                  </AnimatePresence>
+                </div>
+
                 <div className="flex items-center gap-1.5">
                   {STORY_STEPS.map((s, idx) => (
                     <button
@@ -101,70 +203,59 @@ export function AboutSection({ onNavigateService }: AboutSectionProps) {
                       aria-label={`Jump to story step ${s.number}`}
                       className={`h-2 rounded-full transition-all cursor-pointer ${
                         idx === activeStep
-                          ? 'w-7 bg-[#18181A]'
-                          : 'w-2 bg-[#18181A]/25 hover:bg-[#18181A]/50'
+                          ? 'w-7 bg-[#18181A] dark:bg-[#F4C542]'
+                          : 'w-2 bg-[#18181A]/25 dark:bg-white/25 hover:bg-[#18181A]/50 dark:hover:bg-white/50'
                       }`}
                     />
                   ))}
                 </div>
-                <span className="text-xs font-mono-code text-[#575650] tabular-nums">
+                <span className="text-xs font-mono-code text-[#575650] dark:text-[#FAF8F3]/60 tabular-nums">
                   {STORY_STEPS[activeStep].number} / 04
                 </span>
               </div>
-            </div>
+            </motion.div>
           </div>
 
           {/* Right Scrollable Story Paragraphs */}
           <div className="lg:col-span-7 space-y-16 sm:space-y-24 pt-2">
-            {STORY_STEPS.map((step, idx) => {
-              const isActive = idx === activeStep;
-              return (
-                <motion.div
-                  key={step.number}
-                  ref={(el) => {
-                    stepRefs.current[idx] = el;
-                  }}
-                  initial={{ opacity: 0.45 }}
-                  animate={{ opacity: isActive ? 1 : 0.42 }}
-                  transition={{ duration: 0.3 }}
-                  onClick={() => setActiveStep(idx)}
-                  className="cursor-default"
-                >
-                  <p className="text-[11px] font-mono-code font-bold tracking-[0.16em] uppercase text-[#575650] mb-3">
-                    {step.number} / {step.kicker}
-                  </p>
-                  <p className="text-xl sm:text-[26px] font-semibold leading-[1.42] tracking-[-0.015em] text-[#18181A]">
-                    {step.text}
-                  </p>
-                </motion.div>
-              );
-            })}
+            {STORY_STEPS.map((step, idx) => (
+              <StoryParagraph
+                key={step.number}
+                step={step}
+                index={idx}
+                isActive={idx === activeStep}
+                registerRef={(el) => {
+                  stepRefs.current[idx] = el;
+                }}
+                onSelect={() => setActiveStep(idx)}
+              />
+            ))}
           </div>
         </div>
 
         {/* WHAT I BUILD Interactive 3-Row Strip */}
         <div className="mt-24 sm:mt-32">
-          <p className="text-[11px] font-mono-code font-bold tracking-[0.18em] uppercase text-[#575650] mb-4">
+          <p className="text-[11px] font-mono-code font-bold tracking-[0.18em] uppercase text-[#575650] dark:text-[#FAF8F3]/60 mb-4">
             WHAT I BUILD
           </p>
-          <div className="border-t-2 border-[#18181A]">
+          <div className="border-t-2 border-[#18181A] dark:border-[#FAF8F3]/80">
             {WHAT_I_BUILD_ITEMS.map((item) => (
               <button
                 key={item.slug}
                 type="button"
                 onClick={() => onNavigateService(item.slug)}
-                className="group relative w-full text-left border-b-2 border-[#18181A] py-5 sm:py-6 px-3 sm:px-5 flex items-center justify-between gap-4 overflow-hidden cursor-pointer"
+                className="group relative w-full text-left border-b-2 border-[#18181A] dark:border-[#FAF8F3]/80 py-5 sm:py-6 px-3 sm:px-5 flex items-center justify-between gap-4 overflow-hidden cursor-pointer"
               >
                 {/* Sliding Yellow Hover Background */}
                 <span
                   aria-hidden="true"
                   className="absolute inset-0 bg-[#F4C542] -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)]"
                 />
-                <span className="relative z-10 flex items-center gap-3 text-lg sm:text-2xl font-bold tracking-tight text-[#18181A]">
+                <span className="relative z-10 flex items-center gap-3 text-lg sm:text-2xl font-bold tracking-tight text-[#18181A] dark:text-[#FAF8F3] group-hover:text-[#18181A] transition-colors">
                   <ArrowRight className="w-5 h-5 transition-transform duration-200 group-hover:translate-x-1" />
                   <span>{item.label}</span>
                 </span>
-                <span className="relative z-10 text-[11px] font-mono-code font-bold tracking-[0.15em] uppercase text-[#18181A]/75 whitespace-nowrap shrink-0">
+                <span className="relative z-10 text-[11px] font-mono-code font-bold tracking-[0.15em] uppercase text-[#18181A]/75 dark:text-[#FAF8F3]/70 group-hover:text-[#18181A] whitespace-nowrap shrink-0 transition-colors">
                   {item.tag}
                 </span>
               </button>
