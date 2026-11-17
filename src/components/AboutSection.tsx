@@ -48,7 +48,9 @@ function StoryParagraph({
     target: localRef,
     offset: ['start 0.88', 'center 0.45'],
   });
-  const words = step.text.split(' ');
+  const lines = step.text.split('\n');
+  const words = lines.flatMap((line) => line.split(' '));
+  let wordIndex = 0;
 
   return (
     <div
@@ -69,14 +71,21 @@ function StoryParagraph({
         {step.number} / {step.kicker}
       </p>
       <p className="text-xl sm:text-[26px] font-semibold leading-[1.42] tracking-[-0.015em] text-[#18181A] dark:text-[#FAF8F3]">
-        {words.map((word, wIdx) => (
-          <StoryWord
-            key={`${step.number}-${wIdx}`}
-            word={word}
-            index={wIdx}
-            total={words.length}
-            progress={scrollYProgress}
-          />
+        {lines.map((line, lineIdx) => (
+          <span key={`${step.number}-line-${lineIdx}`} className="block">
+            {line.split(' ').map((word) => {
+              const index = wordIndex++;
+              return (
+                <StoryWord
+                  key={`${step.number}-${index}`}
+                  word={word}
+                  index={index}
+                  total={words.length}
+                  progress={scrollYProgress}
+                />
+              );
+            })}
+          </span>
         ))}
       </p>
     </div>
@@ -164,7 +173,7 @@ export function AboutSection({ onNavigateService }: AboutSectionProps) {
 
                 {/* Polaroid Caption */}
                 <div className="mt-3 flex items-center justify-between px-1">
-                  <span className="text-xs font-bold text-[#18181A]">Malang, ID</span>
+                  <span className="text-xs font-bold text-[#18181A]">SURABAYA, INDONESIA</span>
                   <span className="font-editorial-italic italic text-sm text-[#18181A]/85">
                     &ldquo;that&apos;s me, yeah&rdquo;
                   </span>
