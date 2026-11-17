@@ -1,5 +1,5 @@
 import { ArrowUp, ArrowUpRight, Github, Linkedin } from 'lucide-react';
-import { AQMonogram, PixelWordmark, TornEdge } from './Graphics';
+import { AMonogram, PixelWordmark, TornEdge } from './Graphics';
 import { ServiceSlug } from '../data/portfolioData';
 
 interface FooterProps {
@@ -21,23 +21,25 @@ export function Footer({
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const currentYear = new Date().getFullYear();
+
   return (
     <footer className="relative bg-[#2F45FF]">
-      <TornEdge fill="#161618" />
+      <TornEdge fill="currentColor" className="text-[#161618] dark:text-[#0C0C0E]" />
 
-      <div className="bg-dark-ruled text-[#FAF8F3] pt-16 sm:pt-20 pb-8 px-5 sm:px-8">
+      <div className="bg-dark-ruled dark:bg-[#0C0C0E] text-[#FAF8F3] pt-16 sm:pt-20 pb-24 lg:pb-8 px-5 sm:px-8">
         <div className="max-w-[1200px] mx-auto">
           {/* Top 4-Column Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-10 pb-16 border-b border-white/10">
             {/* Brand Summary */}
             <div className="lg:col-span-5">
-              <AQMonogram className="w-10 h-8 mb-4" color="#FAF8F3" />
+              <AMonogram className="w-10 h-8 mb-4" color="#FAF8F3" />
               <p className="text-sm text-white/65 max-w-[270px] leading-relaxed mb-5">
                 Websites, web applications, and Android mobile applications that ship.
               </p>
               <div className="flex items-center gap-2.5">
                 <a
-                  href="https://github.com/QIra-Qira"
+                  href="https://github.com/Qira-Qira"
                   target="_blank"
                   rel="noreferrer"
                   aria-label="GitHub"
@@ -46,7 +48,7 @@ export function Footer({
                   <Github className="w-3.5 h-3.5" />
                 </a>
                 <a
-                  href="https://www.linkedin.com/in/nawaf-ariq-hilalbi"
+                  href="https://www.linkedin.com/in/nawaf-ariq-hilalbi/"
                   target="_blank"
                   rel="noreferrer"
                   aria-label="LinkedIn"
@@ -208,10 +210,9 @@ export function Footer({
             <PixelWordmark word="ARIQ" color="#FAF8F3" className="w-full h-auto" />
           </div>
 
-          {/* Bottom Legal Row */}
-          <div className="pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] font-mono-code text-white/45">
-            <span>© 2026 Nawaf Ariq Hilalbi</span>
-            <span>Designed and built by Nawaf Ariq Hilalbi</span>
+\          <div className="pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] font-mono-code text-white/45">
+            <span>&copy; {currentYear} Nawaf Ariq Hilalbi</span>
+            <span>Designed and built by Ariq · nawaf.hilalbi25@student.uisi.ac.id</span>
             <button
               type="button"
               onClick={scrollToTop}
