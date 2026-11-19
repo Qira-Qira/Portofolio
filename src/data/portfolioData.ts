@@ -1,4 +1,4 @@
-export type ServiceSlug = 'websites' | 'web-applications' | 'mobile-applications';
+export type ServiceSlug = 'photography-editing' | 'web-applications' | 'mobile-applications';
 
 export type ProjectCategory = 'Website' | 'Web App' | 'Mobile App';
 
@@ -10,12 +10,10 @@ export interface StoryStep {
 
 export interface ExperienceRole {
   index: string;
-  period: string;
+  period: string | null;
   title: string;
   company: string;
   type: string;
-  location: string;
-  mode: string;
   summary: string;
   bullets: string[];
   tags: string[];
@@ -89,7 +87,11 @@ export interface ServicePrinciple {
     | 'mvvm-arch'
     | 'sm2-curve'
     | 'unidirectional-state'
-    | 'real-devices';
+    | 'real-devices'
+    | 'photo-planning'
+    | 'photo-capture'
+    | 'photo-editing'
+    | 'video-editing';
 }
 
 export interface ServiceDetail {
@@ -127,7 +129,7 @@ export const STORY_STEPS: StoryStep[] = [
 ];
 
 export const WHAT_I_BUILD_ITEMS: { label: string; tag: string; slug: ServiceSlug }[] = [
-  { label: 'Website Development', tag: 'WEBSITE', slug: 'websites' },
+  { label: 'Photography & Editing', tag: 'PHOTO & VIDEO', slug: 'photography-editing' },
   { label: 'Web Application Development', tag: 'WEB APP', slug: 'web-applications' },
   { label: 'Android Mobile App Development', tag: 'MOBILE APP', slug: 'mobile-applications' },
 ];
@@ -135,22 +137,17 @@ export const WHAT_I_BUILD_ITEMS: { label: string; tag: string; slug: ServiceSlug
 export const EXPERIENCE_ROLES: ExperienceRole[] = [
   {
     index: '01',
-    period: 'JAN - JUL 2025',
-    title: 'Web Developer',
-    company: 'PT. Niconsite',
-    type: 'INTERNSHIP',
-    location: 'SURABAYA, INDONESIA',
-    mode: 'HYBRID',
+    period: null,
+    title: 'PDD (Publikasi, Dekorasi, dan Dokumentasi)',
+    company: 'Universitas Internasional Semen Indonesia',
+    type: 'ORGANISASI KAMPUS',
     summary:
-      'Built a business operations dashboard from scratch for a data consulting firm, from the database and access rules to the interface the team uses every day.',
+      'Berkontribusi dalam kegiatan kampus melalui dokumentasi foto dan video, serta editing konten untuk menyampaikan momen dan informasi kegiatan dengan menarik.',
     bullets: [
-      'Multi-role dashboard (Owner, Admin, Consultant) with access control enforced at the database level, not just in the UI',
-      'Real-time notifications and an internal chat to keep the team coordinated',
-      'Revenue and consultant payment calculated inside the database so the numbers stay consistent',
-      'Excel export and PDF reports for day-to-day reporting',
-      'Turned requirements from a non-technical team into features that fit how they actually work',
+      'Mengambil foto dan video untuk mendokumentasikan kegiatan kampus',
+      'Mengedit foto dan video agar siap digunakan sebagai materi publikasi',
     ],
-    tags: ['NEXT.JS', 'REACT', 'TYPESCRIPT', 'SUPABASE', 'POSTGRESQL'],
+    tags: ['PDD', 'PHOTOGRAPHY', 'VIDEOGRAPHY', 'EDITING'],
   },
 ];
 
@@ -238,36 +235,36 @@ export const SKILL_GROUPS: SkillGroup[] = [
 export const WHY_ME_CARDS: WhyMeCard[] = [
   {
     number: '01',
-    title: 'I ship to production',
+    title: 'Saya merilis karya nyata ke produksi',
     description:
-      'Every project starts with a problem worth solving and ends with something actually running, not a prototype that stalls.',
+      'Setiap proyek dimulai dari masalah yang layak dipecahkan dan berakhir dengan sistem atau visual yang benar-benar berjalan, bukan sekadar purwarupa yang mangkrak.',
     bgColor: '#F4C542',
     textColor: '#18181A',
     icon: 'plane',
   },
   {
     number: '02',
-    title: 'Three kinds of product, one standard',
+    title: 'Lintas domain digital & visual, satu standar',
     description:
-      'Websites, web applications, and Android apps, built with Next.js and TypeScript on the web and Kotlin with Jetpack Compose on Android.',
+      'Aplikasi web & mobile yang dibangun dengan Next.js, TypeScript, dan Kotlin Jetpack Compose—berpadu mulus dengan fotografi komersial serta editing video profesional.',
     bgColor: '#9FE6C7',
     textColor: '#18181A',
     icon: 'asterisk',
   },
   {
     number: '03',
-    title: 'A clear process, start to finish',
+    title: 'Alur visual yang terstruktur, dari bidikan ke render',
     description:
-      'Every project moves through requirements, planning, design, development, testing, and deployment, with you in the loop at every stage.',
+      'Setiap karya visual melalui tahap konsep, penataan cahaya, pengambilan gambar di balik lensa, hingga proses editing dan color grading yang presisi.',
     bgColor: '#F43F8E',
     textColor: '#18181A',
     icon: 'plus',
   },
   {
     number: '04',
-    title: 'Built for real people',
+    title: 'Visual yang bercerita dan berdampak',
     description:
-      'Business web applications, an internal dashboard, a family shop website, and a Quran memorization app. Every project has an actual user in mind.',
+      'Dokumentasi komersial, potret produk, hingga video sinematik. Setiap bingkai dan potongan edit dirancang untuk menyampaikan pesan secara kuat kepada audiens.',
     bgColor: '#2F45FF',
     textColor: '#FFFFFF',
     icon: 'arrow',
@@ -425,68 +422,68 @@ export const CERTIFICATES: CertificateItem[] = [
 ];
 
 export const SERVICE_DETAILS: Record<ServiceSlug, ServiceDetail> = {
-  websites: {
-    slug: 'websites',
-    title: 'Websites',
-    shortLabel: 'Websites',
-    heroBadge: 'SERVICE',
+  'photography-editing': {
+    slug: 'photography-editing',
+    title: 'Photography & Editing',
+    shortLabel: 'Photography & Editing',
+    heroBadge: 'CREATIVE SERVICE',
     description:
-      'Company profiles, landing pages, and catalog sites built to load fast, be found, and stay easy to maintain long after launch.',
-    stackHeading: 'What I build websites with.',
+      'Photography and video editing shaped around the story: from thoughtful framing and intentional light to polished visuals ready to share.',
+    stackHeading: 'The tools and techniques behind each frame.',
     principles: [
       {
         number: '01',
-        title: 'Architecture before aesthetics',
+        title: 'Plan the frame before the shoot',
         description:
-          'Every project starts with folder structure and data flow, not visual polish. Separating routes, domain data, and UI primitives means adding a new page or product line takes minutes instead of untangling coupled markup.',
-        diagramType: 'folder-tree',
+          'A strong image starts with a clear idea. I consider the subject, mood, setting, and composition so each shot has a purpose before the camera comes out.',
+        diagramType: 'photo-planning',
       },
       {
         number: '02',
-        title: 'TypeScript as a design tool',
+        title: 'Capture with intention',
         description:
-          'Typed content schemas and component props make invalid states impossible at compile time. Before any CSS gets written, the shape of every section, card, and metadata tag is explicit and self-documenting.',
-        diagramType: 'typescript-contract',
+          'I pay attention to light, framing, and timing while shooting, building a considered set of images that gives the edit a strong foundation.',
+        diagramType: 'photo-capture',
       },
       {
         number: '03',
-        title: 'UI built from scratch, not assembled from libraries',
+        title: 'Shape the final image',
         description:
-          'I avoid heavy off-the-shelf template kits that look like every other SaaS page. Every button, accordion, modal, and transition curve is tailored to the brand and kept small in bundle weight.',
-        diagramType: 'ui-scratch',
+          'Careful color, contrast, and finishing bring the image together while keeping the result natural and consistent with the intended mood.',
+        diagramType: 'photo-editing',
       },
       {
         number: '04',
-        title: 'Performance & SEO baked in from day one',
+        title: 'Edit video to tell a story',
         description:
-          'Semantic HTML landmarks, balanced font loading, OpenGraph cards, and static-first rendering ensure search engines and visitors on slower mobile networks get an instant first paint.',
-        diagramType: 'seo-perf',
+          'I assemble clips into a clear visual flow, then refine pacing, transitions, and sound before exporting a finished video for its intended platform.',
+        diagramType: 'video-editing',
       },
     ],
     stackGroups: [
       {
-        label: 'FRAMEWORK',
+        label: 'PHOTOGRAPHY',
         badgeColor: '#F4C542',
         badgeTextColor: '#18181A',
-        items: ['Next.js', 'Astro', 'React', 'TypeScript'],
+        items: ['Composition', 'Natural light', 'Framing', 'Visual storytelling'],
       },
       {
-        label: 'STYLING',
+        label: 'PHOTO EDITING',
         badgeColor: '#AEEBD2',
         badgeTextColor: '#18181A',
-        items: ['Tailwind CSS', 'Framer Motion', 'GSAP'],
+        items: ['Color correction', 'Contrast & tone', 'Retouching', 'Canva'],
       },
       {
-        label: 'CMS & DATA',
+        label: 'VIDEO EDITING',
         badgeColor: '#F43F8E',
         badgeTextColor: '#FFFFFF',
-        items: ['Markdown / MDX', 'Supabase', 'PostgreSQL'],
+        items: ['CapCut', 'Clip selection', 'Pacing & transitions', 'Sound sync'],
       },
       {
-        label: 'HOSTING',
+        label: 'VISUAL DESIGN',
         badgeColor: '#2F45FF',
         badgeTextColor: '#FFFFFF',
-        items: ['Vercel', 'Cloudflare Pages', 'GitHub Actions'],
+        items: ['Figma', 'Canva', 'Layout & typography', 'Platform-ready exports'],
       },
     ],
   },

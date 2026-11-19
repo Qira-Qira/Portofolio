@@ -59,13 +59,17 @@ test('filterCertificates returns full collection or filtered subset', () => {
 });
 
 test('service helpers return valid service details and exclude active slug from others', () => {
-  const webService = getServiceBySlug('websites');
-  assert.equal(webService.title, 'Websites');
-  assert.equal(webService.principles.length, 4);
+  const photographyService = getServiceBySlug('photography-editing');
+  assert.equal(photographyService.title, 'Photography & Editing');
+  assert.equal(photographyService.principles.length, 4);
+  assert.deepEqual(
+    photographyService.principles.map((principle) => principle.diagramType),
+    ['photo-planning', 'photo-capture', 'photo-editing', 'video-editing'],
+  );
 
-  const others = getOtherServices('websites');
+  const others = getOtherServices('photography-editing');
   assert.equal(others.length, 2);
-  assert.ok(others.every((s) => s.slug !== 'websites'));
+  assert.ok(others.every((s) => s.slug !== 'photography-editing'));
 });
 
 test('formatCounter pads and clamps values to 3 digits', () => {
