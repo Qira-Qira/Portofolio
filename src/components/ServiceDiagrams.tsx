@@ -160,5 +160,68 @@ export function ServiceDiagram({ type }: { type: ServicePrinciple['diagramType']
           <path d="M84 58 H118 M202 94 H234 M84 126 H118" stroke="#18181A" strokeWidth="1.8" strokeDasharray="4 3" />
         </svg>
       );
+
+    case 'photo-planning':
+      return (
+        <svg viewBox="0 0 320 180" fill="none" className="w-full h-auto">
+          <rect x="22" y="24" width="276" height="132" rx="8" fill="#FAF8F3" stroke="#18181A" strokeWidth="2" />
+          <rect x="38" y="42" width="74" height="88" rx="5" fill="#F4C542" stroke="#18181A" strokeWidth="2" />
+          <circle cx="75" cy="74" r="15" fill="#FAF8F3" stroke="#18181A" strokeWidth="2" />
+          <path d="M52 112 L70 92 L82 103 L91 94 L104 112" stroke="#18181A" strokeWidth="2" strokeLinejoin="round" />
+          <text x="132" y="56" fill="#575650" fontSize="9" fontFamily="monospace" fontWeight="700">THE STORY</text>
+          <line x1="132" y1="68" x2="270" y2="68" stroke="#18181A" strokeWidth="2" />
+          <text x="132" y="94" fill="#575650" fontSize="9" fontFamily="monospace" fontWeight="700">MOOD &amp; LIGHT</text>
+          <line x1="132" y1="106" x2="250" y2="106" stroke="#F43F8E" strokeWidth="3" strokeLinecap="round" />
+          <text x="132" y="132" fill="#575650" fontSize="9" fontFamily="monospace" fontWeight="700">COMPOSITION</text>
+        </svg>
+      );
+
+    case 'photo-capture':
+      return (
+        <svg viewBox="0 0 320 180" fill="none" className="w-full h-auto">
+          <circle cx="244" cy="54" r="19" fill="#F4C542" stroke="#18181A" strokeWidth="2" />
+          <path d="M244 22 V14 M276 54 H284 M267 31 L273 25 M221 31 L215 25" stroke="#18181A" strokeWidth="2" strokeLinecap="round" />
+          <rect x="42" y="58" width="236" height="92" rx="12" fill="#AEEBD2" stroke="#18181A" strokeWidth="2.5" />
+          <path d="M90 58 L102 42 H148 L160 58" fill="#AEEBD2" stroke="#18181A" strokeWidth="2.5" strokeLinejoin="round" />
+          <circle cx="160" cy="104" r="33" fill="white" stroke="#18181A" strokeWidth="2.5" />
+          <circle cx="160" cy="104" r="22" fill="#2F45FF" stroke="#18181A" strokeWidth="2" />
+          <circle cx="160" cy="104" r="8" fill="#18181A" />
+          <circle cx="252" cy="76" r="5" fill="#F43F8E" stroke="#18181A" strokeWidth="1.5" />
+        </svg>
+      );
+
+    case 'photo-editing':
+      return (
+        <svg viewBox="0 0 320 180" fill="none" className="w-full h-auto">
+          <rect x="24" y="24" width="272" height="132" rx="8" fill="#FAF8F3" stroke="#18181A" strokeWidth="2" />
+          <rect x="38" y="40" width="132" height="98" rx="4" fill="#AEEBD2" stroke="#18181A" strokeWidth="1.8" />
+          <path d="M38 118 L78 78 L103 102 L123 82 L170 126 V138 H38 Z" fill="#2F45FF" stroke="#18181A" strokeWidth="1.8" strokeLinejoin="round" />
+          <circle cx="136" cy="58" r="9" fill="#F4C542" stroke="#18181A" strokeWidth="1.5" />
+          <text x="190" y="50" fill="#575650" fontSize="8" fontFamily="monospace" fontWeight="700">COLOR</text>
+          <line x1="190" y1="64" x2="276" y2="64" stroke="#18181A" strokeWidth="2" />
+          <circle cx="232" cy="64" r="5" fill="#F43F8E" stroke="#18181A" strokeWidth="1.5" />
+          <text x="190" y="88" fill="#575650" fontSize="8" fontFamily="monospace" fontWeight="700">CONTRAST</text>
+          <line x1="190" y1="102" x2="276" y2="102" stroke="#18181A" strokeWidth="2" />
+          <circle cx="254" cy="102" r="5" fill="#2F45FF" stroke="#18181A" strokeWidth="1.5" />
+          <text x="190" y="128" fill="#575650" fontSize="8" fontFamily="monospace" fontWeight="700">FINISH</text>
+          <line x1="190" y1="140" x2="276" y2="140" stroke="#18181A" strokeWidth="2" />
+        </svg>
+      );
+
+    case 'video-editing':
+      return (
+        <svg viewBox="0 0 320 180" fill="none" className="w-full h-auto">
+          <rect x="24" y="26" width="272" height="128" rx="8" fill="#FAF8F3" stroke="#18181A" strokeWidth="2" />
+          <rect x="40" y="42" width="108" height="62" rx="4" fill="#AEEBD2" stroke="#18181A" strokeWidth="1.8" />
+          <path d="M40 94 L74 62 L94 80 L112 63 L148 98 V104 H40 Z" fill="#2F45FF" stroke="#18181A" strokeWidth="1.6" strokeLinejoin="round" />
+          <path d="M80 112 L80 136 M80 118 H270" stroke="#18181A" strokeWidth="1.5" />
+          <rect x="90" y="116" width="66" height="14" rx="3" fill="#F4C542" stroke="#18181A" strokeWidth="1.5" />
+          <rect x="160" y="116" width="44" height="14" rx="3" fill="#F43F8E" stroke="#18181A" strokeWidth="1.5" />
+          <rect x="208" y="116" width="58" height="14" rx="3" fill="#AEEBD2" stroke="#18181A" strokeWidth="1.5" />
+          <path d="M88 138 L96 134 L104 142 L112 134 L120 142 L128 134 L136 138" stroke="#2F45FF" strokeWidth="1.5" strokeLinejoin="round" />
+          <path d="M174 108 V146" stroke="#F43F8E" strokeWidth="2" />
+          <text x="190" y="70" fill="#575650" fontSize="9" fontFamily="monospace" fontWeight="700">CUT · PACE · SOUND</text>
+        </svg>
+      );
   }
 }
