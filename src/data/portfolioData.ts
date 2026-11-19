@@ -59,7 +59,18 @@ export interface ProjectItem {
   year: string;
   stack: string[];
   panelBg: string;
-  mockupType: 'itqan' | 'recruitai' | 'fni' | 'dinar' | 'flipomo' | 'niconsite';
+  mockupType:
+    | 'pos-kasir'
+    | 'smk-sunan-giri'
+    | 'informatika-si-13'
+    | 'green-harvest-hub'
+    | 'wedding'
+    | 'itqan'
+    | 'recruitai'
+    | 'fni'
+    | 'dinar'
+    | 'flipomo'
+    | 'niconsite';
   liveUrl: string;
   featured: boolean;
 }
@@ -420,100 +431,84 @@ export const WHY_ME_CARDS: WhyMeCard[] = [
 
 export const PROJECTS: ProjectItem[] = [
   {
-    id: 'itqan',
+    id: 'pos-kasir',
     number: '01',
-    title: 'Itqan',
-    category: 'Mobile App',
-    tags: ['SOLO PROJECT', 'MOBILE APP', 'ANDROID'],
+    title: 'POS-Kasir',
+    category: 'Web App',
+    tags: ['SOLO PROJECT', 'WEB APP', 'POINT OF SALE'],
     description:
-      'A Quran memorization app engineered with a cognitive memory loop: SM-2 spaced repetition, adaptive review scheduling, offline-first local storage, reciter audio playback, and encrypted Google Drive sync.',
-    role: 'Solo Android Developer',
-    year: '2025',
-    stack: ['KOTLIN', 'JETPACK COMPOSE', 'ROOM DB', 'HILT', 'WORKMANAGER'],
+      'A modern point-of-sale web application for recording products, users, and transactions, with a Supabase-ready data layer and responsive React interface.',
+    role: 'Full-Stack Developer',
+    year: '2026',
+    stack: ['REACT', 'VITE', 'TYPESCRIPT', 'SUPABASE', 'TAILWIND CSS'],
     panelBg: '#9FE6C7',
-    mockupType: 'itqan',
-    liveUrl: 'https://github.com/aldenprabaswara/itqan',
+    mockupType: 'pos-kasir',
+    liveUrl: 'https://kasir-five-steel.vercel.app',
     featured: true,
   },
   {
-    id: 'recruitai',
+    id: 'smk-sunan-giri',
     number: '02',
-    title: 'RecruitAI',
+    title: 'SMK Sunan Giri',
     category: 'Web App',
-    tags: ['WEB APP', 'NEXT.JS', 'FULL-STACK'],
+    tags: ['FULL-STACK', 'EDUCATION', 'MULTI-ROLE'],
     description:
-      'An AI-powered recruitment platform that automates resume screening, structured candidate scoring, and interview scheduling with real-time pipeline analytics.',
+      'An official school platform featuring online PPDB, an AI major recommendation system, alumni tracing, job seeker services, and comprehensive role-based administration.',
     role: 'Full-Stack Developer',
-    year: '2025',
-    stack: ['NEXT.JS', 'TYPESCRIPT', 'TAILWIND CSS', 'SUPABASE', 'OPENAI'],
+    year: '2026',
+    stack: ['NEXT.JS', 'REACT', 'TYPESCRIPT', 'TAILWIND CSS', 'AI'],
     panelBg: '#F43F8E',
-    mockupType: 'recruitai',
-    liveUrl: 'https://github.com/aldenprabaswara/recruitai',
+    mockupType: 'smk-sunan-giri',
+    liveUrl: 'https://smk-sunan-giri.vercel.app',
     featured: true,
   },
   {
-    id: 'fni-dashboard',
+    id: 'informatika-si-13',
     number: '03',
-    title: 'FNI Dashboard',
-    category: 'Web App',
-    tags: ['CLIENT WORK', 'WEB APP', 'INTERNAL TOOL'],
+    title: 'Informatika UISI 13',
+    category: 'Website',
+    tags: ['COMMUNITY', 'WEBSITE', 'INFORMATIKA UISI'],
     description:
-      'A business operations and financial analytics dashboard for a data consulting firm, with database-enforced multi-role permissions, automated payout calculation, and real-time team chat.',
-    role: 'Web Developer at PT. Niconsite',
+      'A digital profile and information platform for the Informatics student cohort at UISI, designed to present academic activities and community news responsively.',
+    role: 'Frontend Developer',
     year: '2025',
-    stack: ['NEXT.JS', 'REACT', 'TYPESCRIPT', 'SUPABASE', 'POSTGRESQL'],
+    stack: ['NEXT.JS', 'REACT', 'TYPESCRIPT', 'TAILWIND CSS'],
     panelBg: '#2F45FF',
-    mockupType: 'fni',
-    liveUrl: 'https://niconsite.com',
+    mockupType: 'informatika-si-13',
+    liveUrl: 'https://informatikauisi.vercel.app',
     featured: true,
   },
   {
-    id: 'dinar-khoirur',
+    id: 'green-harvest-hub',
     number: '04',
-    title: 'Dinar Khoirur Rooziqiin',
+    title: 'Green Harvest Hub',
     category: 'Website',
-    tags: ['CLIENT WORK', 'WEBSITE', 'NEXT.JS'],
+    tags: ['UMKM', 'AGRIBUSINESS', 'RESPONSIVE'],
     description:
-      'A fast, responsive catalog and storefront website for a culinary family business, featuring category filtering, gallery showcases, FAQ accordion, and direct WhatsApp ordering.',
-    role: 'Full-Stack Developer',
-    year: '2024',
-    stack: ['NEXT.JS', 'TYPESCRIPT', 'TAILWIND CSS', 'FRAMER MOTION'],
-    panelBg: '#18181A',
-    mockupType: 'dinar',
-    liveUrl: 'https://dinarkhoirurroziqiin.com',
-    featured: true,
-  },
-  {
-    id: 'flipomo',
-    number: '05',
-    title: 'FliPomo',
-    category: 'Mobile App',
-    tags: ['SOLO PROJECT', 'MOBILE APP', 'KOTLIN'],
-    description:
-      'A distraction-free Pomodoro focus timer built in Kotlin and Jetpack Compose with flip-clock animations, customizable focus intervals, daily streaks, and ambient focus audio.',
-    role: 'Solo Android Developer',
-    year: '2024',
-    stack: ['KOTLIN', 'JETPACK COMPOSE', 'DATASTORE', 'MATERIAL 3'],
-    panelBg: '#9FE6C7',
-    mockupType: 'flipomo',
-    liveUrl: 'https://github.com/aldenprabaswara/flipomo',
-    featured: true,
-  },
-  {
-    id: 'niconsite-studio',
-    number: '06',
-    title: 'Niconsite Studio Portal',
-    category: 'Website',
-    tags: ['AGENCY', 'WEBSITE', 'ASTRO'],
-    description:
-      'Landing experience and service intake site for Niconsite software studio, engineered for instant static page loads and clean client onboarding.',
-    role: 'Frontend Engineer',
+      'An organic farm marketplace connecting local West Java farmers with consumers through product catalogs, farmer profiles, interactive agrotourism maps, and WhatsApp checkout.',
+    role: 'Web Developer',
     year: '2025',
-    stack: ['ASTRO', 'REACT', 'TYPESCRIPT', 'TAILWIND CSS', 'CLOUDFLARE'],
+    stack: ['HTML', 'CSS', 'JAVASCRIPT', 'OPENSTREETMAP', 'WHATSAPP'],
+    panelBg: '#AEEBD2',
+    mockupType: 'green-harvest-hub',
+    liveUrl: 'https://green-harvest-hub.vercel.app',
+    featured: true,
+  },
+  {
+    id: 'projek-wedding',
+    number: '05',
+    title: 'Gresma & Siska Wedding',
+    category: 'Website',
+    tags: ['CLIENT WORK', 'WEDDING', 'NEXT.JS'],
+    description:
+      'A responsive digital wedding invitation for Gresma and Siska, built with Next.js and tailored for event information, guest experience, and mobile sharing.',
+    role: 'Frontend Developer',
+    year: '2025',
+    stack: ['NEXT.JS', 'REACT', 'TYPESCRIPT', 'TAILWIND CSS'],
     panelBg: '#F4C542',
-    mockupType: 'niconsite',
-    liveUrl: 'https://niconsite.com',
-    featured: false,
+    mockupType: 'wedding',
+    liveUrl: 'https://the-wedding-of-siska-gresma.vercel.app',
+    featured: true,
   },
 ];
 

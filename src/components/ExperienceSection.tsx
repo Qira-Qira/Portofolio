@@ -154,7 +154,7 @@ export function ExperienceSection() {
             ref={galleryRef}
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
+            viewport={{ once: true, amount: 'some' }}
             transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
             className="relative z-10 bg-white dark:bg-[#1F1F24] brutal-card-lg rounded-xl p-4 sm:p-6"
           >

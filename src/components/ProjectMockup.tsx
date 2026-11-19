@@ -1,6 +1,99 @@
 import { ProjectItem } from '../data/portfolioData';
 
 export function ProjectMockup({ type }: { type: ProjectItem['mockupType'] }) {
+  if (type === 'pos-kasir') {
+    return (
+      <div className="w-full h-full flex items-center justify-center p-5">
+        <div className="w-full max-w-[300px] bg-white border-2 border-[#18181A] rounded-xl p-3.5 shadow-[4px_4px_0px_#18181A]">
+          <div className="flex items-center justify-between mb-3">
+            <span className="text-[11px] font-extrabold text-[#18181A]">POS Kasir</span>
+            <span className="px-2 py-0.5 bg-[#19B56F] text-white text-[8px] font-mono-code font-bold rounded">ACTIVE</span>
+          </div>
+          <div className="grid grid-cols-3 gap-2 mb-2.5">
+            {['Produk', 'Pengguna', 'Transaksi'].map((label, index) => (
+              <div key={label} className="p-2 rounded bg-[#FAF8F3] border border-[#18181A]/15">
+                <div className="text-[7px] text-[#575650]">{label}</div>
+                <div className="text-xs font-extrabold">{[24, 8, 156][index]}</div>
+              </div>
+            ))}
+          </div>
+          <div className="grid grid-cols-2 gap-2">
+            {['Latte', 'Sandwich', 'Tea', 'Croissant'].map((item, index) => (
+              <div key={item} className="p-2 rounded border border-[#18181A]/15 bg-white text-[8px] font-bold">
+                <span className="inline-block w-5 h-5 mr-1.5 align-middle rounded bg-[#AEEBD2]" />
+                {item}<span className="float-right text-[#19B56F]">{[18, 22, 12, 20][index]}k</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (type === 'smk-sunan-giri') {
+    return (
+      <div className="w-full h-full flex items-center justify-center p-5">
+        <div className="w-full max-w-[300px] bg-white border-2 border-[#18181A] rounded-xl p-3 shadow-[4px_4px_0px_#18181A]">
+          <div className="flex items-center justify-between border-b border-[#18181A]/15 pb-2 mb-2.5">
+            <span className="text-[10px] font-extrabold">SMK SUNAN GIRI</span>
+            <span className="text-[8px] font-mono-code text-[#F43F8E]">ADMIN</span>
+          </div>
+          <div className="grid grid-cols-3 gap-2 mb-2.5">
+            {['PPDB', 'Alumni', 'BKK'].map((label) => (
+              <div key={label} className="p-2 rounded-lg bg-[#FFF0F6] border border-[#18181A]/15 text-center text-[8px] font-bold">{label}</div>
+            ))}
+          </div>
+          <div className="p-2.5 rounded-lg bg-[#FAF8F3] border border-[#18181A]/15">
+            <div className="text-[8px] font-mono-code text-[#575650] mb-2">RECOMMENDATION RESULT</div>
+            <div className="h-3 w-full rounded-full bg-[#E8E8E5] overflow-hidden"><div className="h-full w-[86%] bg-[#F43F8E]" /></div>
+            <div className="mt-2 text-[9px] font-bold">Teknik Komputer & Jaringan — 86%</div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (type === 'informatika-si-13') {
+    return (
+      <div className="w-full h-full flex items-center justify-center p-5">
+        <div className="w-full max-w-[300px] bg-white border-2 border-[#18181A] rounded-xl overflow-hidden shadow-[4px_4px_0px_#18181A]">
+          <div className="bg-[#18181A] px-3 py-2 text-white text-[9px] font-bold flex justify-between"><span>INFORMATIKA UISI</span><span className="text-[#AEEBD2]">ANGK. 13</span></div>
+          <div className="p-3">
+            <div className="h-20 rounded-lg bg-gradient-to-br from-[#2F45FF] to-[#9FE6C7] border border-[#18181A] mb-2 p-2 flex items-end text-white text-[9px] font-bold">Academic & Community Activities</div>
+            <div className="grid grid-cols-3 gap-1.5">{['Profil', 'Kegiatan', 'Berita'].map((label) => <div key={label} className="h-9 rounded bg-[#FAF8F3] border border-[#18181A]/20 text-[8px] font-bold flex items-center justify-center">{label}</div>)}</div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (type === 'green-harvest-hub') {
+    return (
+      <div className="w-full h-full flex items-center justify-center p-5 relative">
+        <div className="w-full max-w-[270px] bg-white border-2 border-[#18181A] rounded-xl overflow-hidden shadow-[4px_4px_0px_#18181A]">
+          <div className="bg-[#19B56F] px-3 py-2 text-white text-[9px] font-bold">Green Harvest Hub</div>
+          <div className="p-3">
+            <div className="h-16 rounded-lg bg-gradient-to-br from-[#AEEBD2] to-[#F4C542]/50 border border-[#18181A] mb-2 flex items-end p-2 text-[9px] font-extrabold">Fresh Organic Products</div>
+            <div className="grid grid-cols-3 gap-1.5">{['Sayur', 'Buah', 'Jamu'].map((label) => <div key={label} className="h-10 rounded bg-[#FAF8F3] border border-[#18181A]/20 text-[8px] font-bold flex items-center justify-center">{label}</div>)}</div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (type === 'wedding') {
+    return (
+      <div className="w-full h-full flex items-center justify-center p-5">
+        <div className="w-36 bg-white border-2 border-[#18181A] rounded-[22px] p-3 shadow-[4px_4px_0px_#18181A] text-center">
+          <div className="w-8 h-1 bg-[#18181A]/20 rounded-full mx-auto mb-3" />
+          <div className="text-[8px] font-mono-code text-[#575650] mb-2">THE WEDDING OF</div>
+          <div className="text-xl font-serif font-extrabold text-[#18181A] leading-tight">Gresma<br /><span className="text-[#F43F8E]">&</span><br />Siska</div>
+          <div className="mt-3 h-8 rounded-lg bg-[#F4C542]/60 border border-[#18181A]/20 flex items-center justify-center text-[8px] font-bold">Lihat Undangan</div>
+        </div>
+      </div>
+    );
+  }
+
   if (type === 'itqan') {
     return (
       <div className="w-full h-full flex items-center justify-center gap-2.5 sm:gap-3 px-4 py-6">

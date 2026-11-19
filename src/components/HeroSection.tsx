@@ -12,7 +12,7 @@ export function HeroSection({ ready, onOpenContact, onSeeWork }: HeroSectionProp
   return (
     <section
       id="hero"
-      className="relative bg-ruled-paper pt-12 sm:pt-16 pb-20 sm:pb-28 px-5 sm:px-8 overflow-hidden"
+      className="relative bg-ruled-paper pt-6 sm:pt-12 lg:pt-6 pb-12 sm:pb-20 lg:pb-10 px-5 sm:px-8 overflow-hidden"
     >
       <div className="max-w-[1060px] mx-auto flex flex-col items-center text-center">
         {/* Kicker */}
@@ -20,7 +20,7 @@ export function HeroSection({ ready, onOpenContact, onSeeWork }: HeroSectionProp
           initial={{ opacity: 0, y: 12 }}
           animate={ready ? { opacity: 1, y: 0 } : { opacity: 0, y: 12 }}
           transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-          className="font-editorial-italic italic text-2xl sm:text-3xl text-[#18181A]/85 dark:text-[#FAF8F3]/85 mb-5"
+          className="font-editorial-italic italic text-2xl sm:text-3xl text-[#18181A]/85 dark:text-[#FAF8F3]/85 mb-2 sm:mb-5 lg:mb-3"
         >
           hi, i&apos;m
         </motion.p>
@@ -33,7 +33,7 @@ export function HeroSection({ ready, onOpenContact, onSeeWork }: HeroSectionProp
               : { opacity: 0, scaleX: 0.72, scaleY: 0.9 }
           }
           transition={{ duration: 0.52, ease: [0.16, 1, 0.3, 1] }}
-          className="relative inline-block px-7 sm:px-14 py-5 sm:py-7 border-2 border-[#E14B32]/85 bg-[#FAF8F3]/80 dark:bg-[#1E1E22]/85 mb-5"
+          className="relative inline-block px-7 sm:px-14 py-3 sm:py-6 lg:py-3 border-2 border-[#E14B32]/85 bg-[#FAF8F3]/80 dark:bg-[#1E1E22]/85 mb-4 sm:mb-5 lg:mb-3"
         >
           {/* 4 Figma selection corner handles */}
           <span className="absolute -top-1.5 -left-1.5 w-3 h-3 bg-white border-2 border-[#E14B32]" />
@@ -128,14 +128,14 @@ export function HeroSection({ ready, onOpenContact, onSeeWork }: HeroSectionProp
           initial={{ opacity: 0 }}
           animate={ready ? { opacity: 1 } : { opacity: 0 }}
           transition={{ delay: 0.45, duration: 0.4 }}
-          className="text-[11px] font-mono-code tracking-[0.16em] uppercase text-[#575650] dark:text-[#FAF8F3]/65 mb-9"
+          className="text-[11px] font-mono-code tracking-[0.16em] uppercase text-[#575650] dark:text-[#FAF8F3]/65 mb-5 sm:mb-9 lg:mb-5"
         >
           ✦ TAKING NEW PROJECTS AT NICONSITE
         </motion.p>
 
         {/* Main Hero Display Headline with line mask + popping inline badges */}
         <h1
-          className="text-4xl sm:text-5xl md:text-[58px] font-extrabold tracking-[-0.025em] leading-[1.15] text-[#18181A] dark:text-[#FAF8F3] max-w-[820px] mb-6"
+          className="text-4xl sm:text-5xl md:text-[58px] lg:text-[50px] font-extrabold tracking-[-0.025em] leading-[1.15] text-[#18181A] dark:text-[#FAF8F3] max-w-[820px] mb-3 sm:mb-6 lg:mb-4"
           style={{ textWrap: 'balance' }}
         >
           <span className="inline-block overflow-hidden align-bottom">
@@ -213,22 +213,17 @@ export function HeroSection({ ready, onOpenContact, onSeeWork }: HeroSectionProp
           initial={{ opacity: 0, y: 12 }}
           animate={ready ? { opacity: 1, y: 0 } : { opacity: 0, y: 12 }}
           transition={{ delay: 0.65, duration: 0.5 }}
-          className="text-sm sm:text-base text-[#575650] dark:text-[#FAF8F3]/70 max-w-[540px] leading-relaxed mb-9"
+          className="text-sm sm:text-base text-[#575650] dark:text-[#FAF8F3]/70 max-w-[540px] leading-relaxed mb-4 sm:mb-9 lg:mb-5"
         >
           I’m a Full-Stack & Mobile Developer with a photographer’s eye. I build fast, functional digital products and craft the visual stories that bring them to life.
         </motion.p>
 
         {/* Dual CTA Buttons */}
-        <motion.div
-          initial={{ opacity: 0, y: 12 }}
-          animate={ready ? { opacity: 1, y: 0 } : { opacity: 0, y: 12 }}
-          transition={{ delay: 0.72, duration: 0.45 }}
-          className="flex flex-wrap items-center justify-center gap-3.5"
-        >
+        <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3.5">
           <button
             type="button"
             onClick={onOpenContact}
-            className="inline-flex items-center gap-2 px-5 py-3 rounded-lg bg-[#18181A] dark:bg-[#F4C542] text-[#FAF8F3] dark:text-[#18181A] text-xs font-mono-code font-bold tracking-wider uppercase border-2 border-[#18181A] shadow-[3px_3px_0px_#F4C542] dark:shadow-[3px_3px_0px_#FFFFFF] hover:-translate-y-0.5 active:translate-y-0 transition-transform cursor-pointer"
+            className="inline-flex items-center gap-2 px-2.5 sm:px-5 py-3 rounded-lg bg-[#18181A] dark:bg-[#F4C542] text-[#FAF8F3] dark:text-[#18181A] text-xs font-mono-code font-bold tracking-wider uppercase border-2 border-[#18181A] shadow-[3px_3px_0px_#F4C542] dark:shadow-[3px_3px_0px_#FFFFFF] hover:-translate-y-0.5 active:translate-y-0 transition-transform cursor-pointer"
           >
             <Mail className="w-3.5 h-3.5" />
             <span>HIRE ARIQ</span>
@@ -236,12 +231,12 @@ export function HeroSection({ ready, onOpenContact, onSeeWork }: HeroSectionProp
           <button
             type="button"
             onClick={onSeeWork}
-            className="inline-flex items-center gap-2 px-5 py-3 rounded-lg bg-white dark:bg-[#222226] text-[#18181A] dark:text-[#FAF8F3] text-xs font-mono-code font-bold tracking-wider uppercase border-2 border-[#18181A] dark:border-white/80 shadow-[3px_3px_0px_#18181A] dark:shadow-[3px_3px_0px_#F4C542] hover:bg-[#F4C542] hover:text-[#18181A] hover:-translate-y-0.5 active:translate-y-0 transition-all cursor-pointer"
+            className="inline-flex items-center gap-2 px-2.5 sm:px-5 py-3 rounded-lg bg-white dark:bg-[#222226] text-[#18181A] dark:text-[#FAF8F3] text-xs font-mono-code font-bold tracking-wider uppercase border-2 border-[#18181A] dark:border-white/80 shadow-[3px_3px_0px_#18181A] dark:shadow-[3px_3px_0px_#F4C542] hover:bg-[#F4C542] hover:text-[#18181A] hover:-translate-y-0.5 active:translate-y-0 transition-all cursor-pointer"
           >
             <span>SEE MY WORK</span>
             <ArrowDown className="w-3.5 h-3.5" />
           </button>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

@@ -40,16 +40,16 @@ test('validateContactForm accepts well-formed project inquiries', () => {
 });
 
 test('filterProjects filters by category and search query accurately', () => {
-  const mobileApps = filterProjects(PROJECTS, 'Mobile App', '');
-  assert.equal(mobileApps.length, 2);
+  const webApps = filterProjects(PROJECTS, 'Web App', '');
+  assert.equal(webApps.length, 2);
   assert.deepEqual(
-    mobileApps.map((p) => p.id),
-    ['itqan', 'flipomo'],
+    webApps.map((p) => p.id),
+    ['pos-kasir', 'smk-sunan-giri'],
   );
 
   const supabaseProjects = filterProjects(PROJECTS, 'All', 'supabase');
-  assert.equal(supabaseProjects.length, 2);
-  assert.ok(supabaseProjects.some((p) => p.id === 'fni-dashboard'));
+  assert.equal(supabaseProjects.length, 1);
+  assert.ok(supabaseProjects.some((p) => p.id === 'pos-kasir'));
 });
 
 test('filterCertificates returns full collection or filtered subset', () => {
