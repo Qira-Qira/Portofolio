@@ -63,7 +63,7 @@ export function ServiceDetailPage({
           </div>
         </div>
 
-        {/* 4 Alternating Engineering Principles */}
+        {/* 4 Alternating Creative Process Steps */}
         <div className="py-16 sm:py-24 space-y-16 sm:space-y-24">
           {service.principles.map((principle, idx) => {
             const isReversed = idx % 2 === 1;
@@ -101,7 +101,7 @@ export function ServiceDetailPage({
         {/* Stack Section */}
         <div className="pt-12 border-t border-[#18181A]/15 dark:border-white/15">
           <span className="inline-block px-2.5 py-0.5 bg-[#AEEBD2] text-[#18181A] text-[10px] font-mono-code font-bold tracking-widest uppercase border border-[#18181A] mb-4">
-            STACK
+            TOOLS & APPROACH
           </span>
           <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-[#18181A] dark:text-[#FAF8F3] mb-8">
             {service.stackHeading}
