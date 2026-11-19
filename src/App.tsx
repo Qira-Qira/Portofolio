@@ -17,11 +17,10 @@ import { ServicesSection } from './components/ServicesSection';
 import { CTASection } from './components/CTASection';
 import { Footer } from './components/Footer';
 import { ContactModal } from './components/ContactModal';
-import { CertificateModal } from './components/CertificateModal';
 import { ServiceDetailPage } from './components/ServiceDetailPage';
 import { CertificatesPage } from './components/CertificatesPage';
 import { ProjectsArchivePage } from './components/ProjectsArchivePage';
-import { CertificateItem, SERVICE_DETAILS, ServiceSlug } from './data/portfolioData';
+import { SERVICE_DETAILS, ServiceSlug } from './data/portfolioData';
 
 export default function App() {
   const skipIntro =
@@ -37,7 +36,6 @@ export default function App() {
   const [curtainLabel, setCurtainLabel] = useState<string | null>(null);
   const [curtainActive, setCurtainActive] = useState(false);
   const [contactOpen, setContactOpen] = useState(false);
-  const [activeCertificate, setActiveCertificate] = useState<CertificateItem | null>(null);
 
   useEffect(() => {
     document.documentElement.classList.toggle('dark', darkMode);
@@ -185,10 +183,7 @@ export default function App() {
           <SkillsSection />
           <WhyMeSection />
           <SelectedWorkSection onOpenArchive={handleNavigateProjects} />
-          <CertificatesSection
-            onOpenAllCertificates={handleNavigateCertificates}
-            onInspectCertificate={(cert) => setActiveCertificate(cert)}
-          />
+          <CertificatesSection onOpenAllCertificates={handleNavigateCertificates} />
           <ServicesSection onNavigateService={handleNavigateService} />
         </main>
       )}
@@ -202,10 +197,7 @@ export default function App() {
       )}
 
       {route.type === 'certificates' && (
-        <CertificatesPage
-          onBackHome={() => handleNavigateHome()}
-          onInspectCertificate={(cert) => setActiveCertificate(cert)}
-        />
+        <CertificatesPage onBackHome={() => handleNavigateHome()} />
       )}
 
       {route.type === 'projects' && (
@@ -225,10 +217,6 @@ export default function App() {
       <BackToTopButton enabled={route.type === 'home' && preloaderDone} />
 
       <ContactModal open={contactOpen} onClose={() => setContactOpen(false)} />
-      <CertificateModal
-        certificate={activeCertificate}
-        onClose={() => setActiveCertificate(null)}
-      />
     </div>
   );
 }

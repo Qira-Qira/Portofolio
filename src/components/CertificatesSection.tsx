@@ -1,20 +1,14 @@
 import { LayoutGrid } from 'lucide-react';
-import { CERTIFICATES, CertificateItem } from '../data/portfolioData';
-import { CertificateCard } from './CertificateCard';
+import { CERTIFICATE_IMAGES } from '../data/portfolioData';
+import { CertificateImageGallery } from './CertificateImageGallery';
 import { TornEdge } from './Graphics';
 import { SectionHeadingGroup, SectionHeadingItem } from './SectionHeadingReveal';
 
 interface CertificatesSectionProps {
   onOpenAllCertificates: () => void;
-  onInspectCertificate: (cert: CertificateItem) => void;
 }
 
-export function CertificatesSection({
-  onOpenAllCertificates,
-  onInspectCertificate,
-}: CertificatesSectionProps) {
-  const topThree = CERTIFICATES.slice(0, 3);
-
+export function CertificatesSection({ onOpenAllCertificates }: CertificatesSectionProps) {
   return (
     <section id="certificates" className="relative bg-[#AEEBD2] pt-16 sm:pt-24 pb-16 sm:pb-24">
       <div className="max-w-[1160px] mx-auto px-5 sm:px-8">
@@ -43,7 +37,7 @@ export function CertificatesSection({
 
           <SectionHeadingItem className="flex items-baseline gap-2.5">
             <span className="text-5xl font-extrabold font-mono-code tabular-nums text-[#18181A]">
-              04
+              {CERTIFICATE_IMAGES.length}
             </span>
             <span className="text-[11px] font-mono-code uppercase tracking-wider text-[#18181A]/75">
               CREDENTIALS
@@ -51,22 +45,12 @@ export function CertificatesSection({
           </SectionHeadingItem>
         </SectionHeadingGroup>
 
-        {/* 3-Column Certificate Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-          {topThree.map((cert, idx) => (
-            <CertificateCard
-              key={cert.id}
-              cert={cert}
-              index={idx}
-              onInspect={onInspectCertificate}
-            />
-          ))}
-        </div>
+        <CertificateImageGallery limit={3} />
 
         {/* Footer Row */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-4 border-t border-[#18181A]/15">
           <span className="text-xs font-mono-code text-[#18181A]/75 uppercase tracking-wider">
-            SHOWING 03 / 04
+            SHOWING 03 / {CERTIFICATE_IMAGES.length}
           </span>
           <button
             type="button"

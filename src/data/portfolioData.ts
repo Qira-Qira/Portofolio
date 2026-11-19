@@ -26,6 +26,12 @@ export interface ExperiencePhoto {
   alt: string;
 }
 
+export interface CertificateImage {
+  id: string;
+  title: string;
+  src: string;
+}
+
 export interface SkillGroup {
   label: string;
   badgeColor: string;
@@ -153,23 +159,164 @@ export const EXPERIENCE_ROLES: ExperienceRole[] = [
 
 export const EXPERIENCE_PHOTOS: ExperiencePhoto[] = [
   {
-    id: 'handover',
-    caption: 'CERTIFICATION PRESENTATION',
-    src: '/src/assets/images/internship_handover_1794749717729.jpg',
-    alt: 'Ariq receiving internship certification in the office',
+    id: 'banner-inagurasi',
+    caption: 'BANNER INAGURASI',
+    src: '/assets/images/Dokumentasi/Banner Inagurasi.png',
+    alt: 'Banner kegiatan inagurasi',
   },
   {
-    id: 'award',
-    caption: 'INTERNSHIP CERTIFICATE',
-    src: '/src/assets/images/internship_award_1794749717837.jpg',
-    alt: 'Developer holding official internship completion certificate',
+    id: 'flayer-roadshow',
+    caption: 'FLAYER ROADSHOW',
+    src: '/assets/images/Dokumentasi/Flayer Roadshow.png',
+    alt: 'Flayer kegiatan roadshow',
   },
   {
-    id: 'teamwork',
-    caption: 'TEAM WORKSPACE COLLABORATION',
-    src: '/src/assets/images/internship_teamwork_1794749718871.jpg',
-    alt: 'Software engineering team collaborating on dashboard UI',
+    id: 'poster-inagurasi',
+    caption: 'POSTER INAGURASI',
+    src: '/assets/images/Dokumentasi/POSTER INAGURASI.png',
+    alt: 'Poster kegiatan inagurasi',
   },
+  {
+    id: 'feed-ig',
+    caption: 'INSTAGRAM FEED',
+    src: '/assets/images/Dokumentasi/feed_ig.png',
+    alt: 'Konten Instagram kegiatan kampus',
+  },
+  {
+    id: 'inagurasi',
+    caption: 'INAGURASI',
+    src: '/assets/images/Dokumentasi/inagurasi.JPG',
+    alt: 'Dokumentasi kegiatan inagurasi',
+  },
+  {
+    id: 'kulap',
+    caption: 'KULIAH LAPANGAN',
+    src: '/assets/images/Dokumentasi/kulap.jpg',
+    alt: 'Dokumentasi kegiatan kuliah lapangan',
+  },
+  {
+    id: 'kulap-2',
+    caption: 'KULIAH LAPANGAN',
+    src: '/assets/images/Dokumentasi/kulap_2.jpg',
+    alt: 'Foto kedua kegiatan kuliah lapangan',
+  },
+  {
+    id: 'makrab-1',
+    caption: 'MAKRAB',
+    src: '/assets/images/Dokumentasi/makrab_1.JPG',
+    alt: 'Dokumentasi malam keakraban',
+  },
+  {
+    id: 'makrab-2',
+    caption: 'MAKRAB',
+    src: '/assets/images/Dokumentasi/makrab_2.JPG',
+    alt: 'Foto kedua malam keakraban',
+  },
+  {
+    id: 'poster-kulap',
+    caption: 'POSTER KULIAH LAPANGAN',
+    src: '/assets/images/Dokumentasi/poster_kulap.png',
+    alt: 'Poster kegiatan kuliah lapangan',
+  },
+  {
+    id: 'poster-makrab',
+    caption: 'POSTER MAKRAB',
+    src: '/assets/images/Dokumentasi/poster_makrab.png',
+    alt: 'Poster kegiatan malam keakraban',
+  },
+  {
+    id: 'recap-inagurasi',
+    caption: 'RECAP INAGURASI',
+    src: '/assets/images/Dokumentasi/recap_inagurasi.png',
+    alt: 'Rekap kegiatan inagurasi',
+  },
+  {
+    id: 'recap-makrab',
+    caption: 'RECAP MAKRAB',
+    src: '/assets/images/Dokumentasi/recap_makrab.png',
+    alt: 'Rekap kegiatan malam keakraban',
+  },
+  {
+    id: 'roadshow',
+    caption: 'ROADSHOW',
+    src: '/assets/images/Dokumentasi/roadshow.jpg',
+    alt: 'Dokumentasi kegiatan roadshow',
+  },
+  {
+    id: 'vision-1',
+    caption: 'VISION',
+    src: '/assets/images/Dokumentasi/vision_1.JPG',
+    alt: 'Dokumentasi kegiatan Vision',
+  },
+  {
+    id: 'vision-2',
+    caption: 'VISION',
+    src: '/assets/images/Dokumentasi/vision_2.JPG',
+    alt: 'Foto kedua kegiatan Vision',
+  },
+];
+
+export const CERTIFICATE_IMAGES: CertificateImage[] = [
+  { id: 'its-day', title: "IT's Day", src: "/assets/images/sertifikat/IT's Day.jpg" },
+  { id: 'ldk', title: 'Sertifikat LDK', src: '/assets/images/sertifikat/SERTIFIKAT_LDK-1.png' },
+  {
+    id: 'lkmm-pra-td',
+    title: 'Sertifikat LKMM Pra-TD',
+    src: '/assets/images/sertifikat/SERTIFIKAT_LKMM-PRA-TD-1.png',
+  },
+  {
+    id: 'seminar-mental-health',
+    title: 'Sertifikat Seminar Mental Health',
+    src: '/assets/images/sertifikat/SERTIFIKAT_SEMINAR-MENTAL-HEALTH-1.png',
+  },
+  {
+    id: 'vision',
+    title: 'Sertifikat Vision',
+    src: '/assets/images/sertifikat/SERTIFIKAT_VISION-1.png',
+  },
+  {
+    id: 'pkkmb',
+    title: 'Sertifikat PKKMB',
+    src: '/assets/images/sertifikat/Sertifikat_PKKMB.jpeg',
+  },
+  { id: 'arhanud', title: 'Sertifikat Arhanud', src: '/assets/images/sertifikat/arhanud.jpg' },
+  {
+    id: 'narasumber',
+    title: 'Sertifikat Narasumber',
+    src: '/assets/images/sertifikat/narasumber.jpg',
+  },
+  {
+    id: 'pelatihan-ctf',
+    title: 'Sertifikat Pelatihan CTF',
+    src: '/assets/images/sertifikat/pelatihan_ctf-1.png',
+  },
+  {
+    id: 'polteksi-f',
+    title: 'Sertifikat Polteksi',
+    src: '/assets/images/sertifikat/polteksi_f.jpg',
+  },
+  {
+    id: 'seminar-polteksi',
+    title: 'Sertifikat Seminar Polteksi',
+    src: '/assets/images/sertifikat/seminar-polteksi.jpg',
+  },
+  {
+    id: 'lkmm-td',
+    title: 'Sertifikat LKMM-TD',
+    src: '/assets/images/sertifikat/sertif_lkmmTD.jpeg',
+  },
+  { id: 'smp-f', title: 'Sertifikat SMP', src: '/assets/images/sertifikat/smp_f.jpg' },
+  {
+    id: 'webinar-cysec',
+    title: 'Sertifikat Webinar Cybersecurity',
+    src: '/assets/images/sertifikat/webinar_cysec.jpg',
+  },
+  {
+    id: 'webinar-sinau',
+    title: 'Sertifikat Webinar Sinau',
+    src: '/assets/images/sertifikat/webinar_sinau.jpg',
+  },
+  { id: 'wiharta-f', title: 'Sertifikat Wiharta', src: '/assets/images/sertifikat/wiharta_f.jpg' },
 ];
 
 export const MARQUEE_RIBBON_TOP = [

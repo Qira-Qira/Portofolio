@@ -38,7 +38,6 @@ export function ExperienceSection() {
       className="bg-ruled-paper py-20 sm:py-28 px-5 sm:px-8 border-t border-[#18181A]/10 dark:border-white/10"
     >
       <div className="max-w-[1160px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
-        {/* Left Sticky Column */}
         <SectionHeadingGroup
           testId="experience-heading-reveal"
           className="lg:col-span-4 lg:sticky lg:top-24"
@@ -80,14 +79,11 @@ export function ExperienceSection() {
           </SectionHeadingItem>
         </SectionHeadingGroup>
 
-        {/* Right Experience Cards Stack */}
         <div ref={stackRef} className="lg:col-span-8 space-y-8 relative">
-          {/* Card 01: PDD at Universitas Internasional Semen Indonesia */}
           <motion.article
             style={{ scale: roleScale, opacity: roleOpacity }}
             className="lg:sticky lg:top-24 bg-white dark:bg-[#1F1F24] brutal-card-lg rounded-xl overflow-hidden origin-top"
           >
-            {/* Top Yellow Header Bar */}
             <div className="bg-[#F4C542] border-b-2 border-[#18181A] px-5 py-2.5 flex items-center justify-between">
               <span className="font-mono-code font-extrabold text-sm text-[#18181A]">
                 {role.index}
@@ -129,7 +125,10 @@ export function ExperienceSection() {
                     className="flex items-start gap-2.5 text-sm text-[#575650] dark:text-[#FAF8F3]/75 leading-relaxed"
                   >
                     <span className="mt-1 w-4 h-4 rounded-sm bg-[#F4C542]/45 border border-[#18181A] flex items-center justify-center shrink-0">
-                      <Check className="w-3 h-3 text-[#18181A] dark:text-[#FAF8F3]" strokeWidth={3} />
+                      <Check
+                        className="w-3 h-3 text-[#18181A] dark:text-[#FAF8F3]"
+                        strokeWidth={3}
+                      />
                     </span>
                     <span>{bullet}</span>
                   </li>
@@ -151,7 +150,6 @@ export function ExperienceSection() {
             </div>
           </motion.article>
 
-          {/* Card 02: Internship Photo Gallery */}
           <motion.div
             ref={galleryRef}
             initial={{ opacity: 0, y: 24 }}
@@ -161,228 +159,27 @@ export function ExperienceSection() {
             className="relative z-10 bg-white dark:bg-[#1F1F24] brutal-card-lg rounded-xl p-4 sm:p-6"
           >
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {/* Large top photo spanning 2 cols */}
-              <div className="sm:col-span-2 rounded-lg border-2 border-[#18181A] dark:border-white/75 overflow-hidden bg-[#FAF8F3] dark:bg-[#161618] group">
-                <div className="aspect-[16/9] w-full overflow-hidden">
-                  <img
-                    src={EXPERIENCE_PHOTOS[0].src}
-                    alt={EXPERIENCE_PHOTOS[0].alt}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-                    referrerPolicy="no-referrer"
-                  />
-                </div>
-                <div className="px-3.5 py-2 border-t-2 border-[#18181A] dark:border-white/75 bg-white dark:bg-[#1F1F24]">
-                  <p className="text-[10px] font-mono-code font-bold tracking-[0.14em] uppercase text-[#575650] dark:text-[#FAF8F3]/70">
-                    {EXPERIENCE_PHOTOS[0].caption}
-                  </p>
-                </div>
-              </div>
-
-              {/* Bottom 2 photos */}
-              {EXPERIENCE_PHOTOS.slice(1).map((photo) => (
+              {EXPERIENCE_PHOTOS.map((photo, index) => (
                 <div
                   key={photo.id}
-                  className="rounded-lg border-2 border-[#18181A] dark:border-white/75 overflow-hidden bg-[#FAF8F3] dark:bg-[#161618] group"
+                  className={`${index === 0 ? 'sm:col-span-2' : ''} rounded-lg border-2 border-[#18181A] dark:border-white/75 overflow-hidden bg-[#FAF8F3] dark:bg-[#161618] group`}
                 >
-                  <div className="aspect-[4/3] w-full overflow-hidden">
+                  <div className={`${index === 0 ? 'aspect-[16/9]' : 'aspect-[4/3]'} w-full overflow-hidden`}>
                     <img
                       src={photo.src}
                       alt={photo.alt}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
-                      referrerPolicy="no-referrer"
+                      loading="lazy"
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
                     />
                   </div>
-                  <div className="px-3 py-2 border-t-2 border-[#18181A] dark:border-white/75 bg-white dark:bg-[#1F1F24]">
-                    <p className="text-[10px] font-mono-code font-bold tracking-[0.12em] uppercase text-[#575650] dark:text-[#FAF8F3]/70 truncate">
+                  <div className="px-3.5 py-2 border-t-2 border-[#18181A] dark:border-white/75 bg-white dark:bg-[#1F1F24]">
+                    <p className="text-[10px] font-mono-code font-bold tracking-[0.14em] uppercase text-[#575650] dark:text-[#FAF8F3]/70">
                       {photo.caption}
                     </p>
                   </div>
                 </div>
               ))}
             </div>
-              <br/>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {/* Large top photo spanning 2 cols */}
-              <div className="sm:col-span-2 rounded-lg border-2 border-[#18181A] dark:border-white/75 overflow-hidden bg-[#FAF8F3] dark:bg-[#161618] group">
-                <div className="aspect-[16/9] w-full overflow-hidden">
-                  <img
-                    src={EXPERIENCE_PHOTOS[0].src}
-                    alt={EXPERIENCE_PHOTOS[0].alt}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-                    referrerPolicy="no-referrer"
-                  />
-                </div>
-                <div className="px-3.5 py-2 border-t-2 border-[#18181A] dark:border-white/75 bg-white dark:bg-[#1F1F24]">
-                  <p className="text-[10px] font-mono-code font-bold tracking-[0.14em] uppercase text-[#575650] dark:text-[#FAF8F3]/70">
-                    {EXPERIENCE_PHOTOS[0].caption}
-                  </p>
-                </div>
-              </div>
-
-              {/* Bottom 2 photos */}
-              {EXPERIENCE_PHOTOS.slice(1).map((photo) => (
-                <div
-                  key={photo.id}
-                  className="rounded-lg border-2 border-[#18181A] dark:border-white/75 overflow-hidden bg-[#FAF8F3] dark:bg-[#161618] group"
-                >
-                  <div className="aspect-[4/3] w-full overflow-hidden">
-                    <img
-                      src={photo.src}
-                      alt={photo.alt}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
-                      referrerPolicy="no-referrer"
-                    />
-                  </div>
-                  <div className="px-3 py-2 border-t-2 border-[#18181A] dark:border-white/75 bg-white dark:bg-[#1F1F24]">
-                    <p className="text-[10px] font-mono-code font-bold tracking-[0.12em] uppercase text-[#575650] dark:text-[#FAF8F3]/70 truncate">
-                      {photo.caption}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-              <br/>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {/* Large top photo spanning 2 cols */}
-              <div className="sm:col-span-2 rounded-lg border-2 border-[#18181A] dark:border-white/75 overflow-hidden bg-[#FAF8F3] dark:bg-[#161618] group">
-                <div className="aspect-[16/9] w-full overflow-hidden">
-                  <img
-                    src={EXPERIENCE_PHOTOS[0].src}
-                    alt={EXPERIENCE_PHOTOS[0].alt}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-                    referrerPolicy="no-referrer"
-                  />
-                </div>
-                <div className="px-3.5 py-2 border-t-2 border-[#18181A] dark:border-white/75 bg-white dark:bg-[#1F1F24]">
-                  <p className="text-[10px] font-mono-code font-bold tracking-[0.14em] uppercase text-[#575650] dark:text-[#FAF8F3]/70">
-                    {EXPERIENCE_PHOTOS[0].caption}
-                  </p>
-                </div>
-              </div>
-
-              {/* Bottom 2 photos */}
-              {EXPERIENCE_PHOTOS.slice(1).map((photo) => (
-                <div
-                  key={photo.id}
-                  className="rounded-lg border-2 border-[#18181A] dark:border-white/75 overflow-hidden bg-[#FAF8F3] dark:bg-[#161618] group"
-                >
-                  <div className="aspect-[4/3] w-full overflow-hidden">
-                    <img
-                      src={photo.src}
-                      alt={photo.alt}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
-                      referrerPolicy="no-referrer"
-                    />
-                  </div>
-                  <div className="px-3 py-2 border-t-2 border-[#18181A] dark:border-white/75 bg-white dark:bg-[#1F1F24]">
-                    <p className="text-[10px] font-mono-code font-bold tracking-[0.12em] uppercase text-[#575650] dark:text-[#FAF8F3]/70 truncate">
-                      {photo.caption}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-              <br/>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {/* Large top photo spanning 2 cols */}
-              <div className="sm:col-span-2 rounded-lg border-2 border-[#18181A] dark:border-white/75 overflow-hidden bg-[#FAF8F3] dark:bg-[#161618] group">
-                <div className="aspect-[16/9] w-full overflow-hidden">
-                  <img
-                    src={EXPERIENCE_PHOTOS[0].src}
-                    alt={EXPERIENCE_PHOTOS[0].alt}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-                    referrerPolicy="no-referrer"
-                  />
-                </div>
-                <div className="px-3.5 py-2 border-t-2 border-[#18181A] dark:border-white/75 bg-white dark:bg-[#1F1F24]">
-                  <p className="text-[10px] font-mono-code font-bold tracking-[0.14em] uppercase text-[#575650] dark:text-[#FAF8F3]/70">
-                    {EXPERIENCE_PHOTOS[0].caption}
-                  </p>
-                </div>
-              </div>
-
-              {/* Bottom 2 photos */}
-              {EXPERIENCE_PHOTOS.slice(1).map((photo) => (
-                <div
-                  key={photo.id}
-                  className="rounded-lg border-2 border-[#18181A] dark:border-white/75 overflow-hidden bg-[#FAF8F3] dark:bg-[#161618] group"
-                >
-                  <div className="aspect-[4/3] w-full overflow-hidden">
-                    <img
-                      src={photo.src}
-                      alt={photo.alt}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
-                      referrerPolicy="no-referrer"
-                    />
-                  </div>
-                  <div className="px-3 py-2 border-t-2 border-[#18181A] dark:border-white/75 bg-white dark:bg-[#1F1F24]">
-                    <p className="text-[10px] font-mono-code font-bold tracking-[0.12em] uppercase text-[#575650] dark:text-[#FAF8F3]/70 truncate">
-                      {photo.caption}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-              <br/>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {/* Large top photo spanning 2 cols */}
-              <div className="sm:col-span-2 rounded-lg border-2 border-[#18181A] dark:border-white/75 overflow-hidden bg-[#FAF8F3] dark:bg-[#161618] group">
-                <div className="aspect-[16/9] w-full overflow-hidden">
-                  <img
-                    src={EXPERIENCE_PHOTOS[0].src}
-                    alt={EXPERIENCE_PHOTOS[0].alt}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-                    referrerPolicy="no-referrer"
-                  />
-                </div>
-                <div className="px-3.5 py-2 border-t-2 border-[#18181A] dark:border-white/75 bg-white dark:bg-[#1F1F24]">
-                  <p className="text-[10px] font-mono-code font-bold tracking-[0.14em] uppercase text-[#575650] dark:text-[#FAF8F3]/70">
-                    {EXPERIENCE_PHOTOS[0].caption}
-                  </p>
-                </div>
-              </div>
-
-              {/* Bottom 2 photos */}
-              {EXPERIENCE_PHOTOS.slice(1).map((photo) => (
-                <div
-                  key={photo.id}
-                  className="rounded-lg border-2 border-[#18181A] dark:border-white/75 overflow-hidden bg-[#FAF8F3] dark:bg-[#161618] group"
-                >
-                  <div className="aspect-[4/3] w-full overflow-hidden">
-                    <img
-                      src={photo.src}
-                      alt={photo.alt}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
-                      referrerPolicy="no-referrer"
-                    />
-                  </div>
-                  <div className="px-3 py-2 border-t-2 border-[#18181A] dark:border-white/75 bg-white dark:bg-[#1F1F24]">
-                    <p className="text-[10px] font-mono-code font-bold tracking-[0.12em] uppercase text-[#575650] dark:text-[#FAF8F3]/70 truncate">
-                      {photo.caption}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-            <br/>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {/* Large top photo spanning 2 cols */}
-              <div className="sm:col-span-2 rounded-lg border-2 border-[#18181A] dark:border-white/75 overflow-hidden bg-[#FAF8F3] dark:bg-[#161618] group">
-                <div className="aspect-[16/9] w-full overflow-hidden">
-                  <img
-                    src={EXPERIENCE_PHOTOS[0].src}
-                    alt={EXPERIENCE_PHOTOS[0].alt}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-                    referrerPolicy="no-referrer"
-                  />
-                </div>
-                <div className="px-3.5 py-2 border-t-2 border-[#18181A] dark:border-white/75 bg-white dark:bg-[#1F1F24]">
-                  <p className="text-[10px] font-mono-code font-bold tracking-[0.14em] uppercase text-[#575650] dark:text-[#FAF8F3]/70">
-                    {EXPERIENCE_PHOTOS[0].caption}
-                  </p>
-                </div>
-              </div>
-              </div>
           </motion.div>
         </div>
       </div>
