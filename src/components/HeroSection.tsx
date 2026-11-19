@@ -176,7 +176,7 @@ export function HeroSection({ ready, onOpenContact, onSeeWork }: HeroSectionProp
                 className="inline-flex items-center justify-center w-9 h-9 sm:w-11 sm:h-11 rounded-full overflow-hidden border-2 border-[#18181A] align-middle -translate-y-1 mr-2"
               >
                 <img
-                  src="/assets/images/porto2.JPG"
+                  src="/assets/images/porto2.webp"
                   alt="Ariq avatar"
                   className="w-full h-full object-cover object-top"
                   referrerPolicy="no-referrer"
@@ -198,7 +198,7 @@ export function HeroSection({ ready, onOpenContact, onSeeWork }: HeroSectionProp
                 className="hidden sm:inline-flex items-center justify-center w-10 h-10 rounded-full overflow-hidden border-2 border-[#18181A] align-middle -translate-y-1 ml-1"
               >
                 <img
-                  src="/assets/images/porto2.JPG"
+                  src="/assets/images/porto2.webp"
                   alt="Ariq portrait badge"
                   className="w-full h-full object-cover object-top"
                   referrerPolicy="no-referrer"

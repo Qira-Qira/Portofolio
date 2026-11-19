@@ -164,7 +164,7 @@ export function AboutSection({ onNavigateService }: AboutSectionProps) {
                 {/* Portrait Image */}
                 <div className="aspect-[3/4] w-full rounded-lg overflow-hidden border-2 border-[#18181A] bg-[#EAE6DC]">
                   <img
-                    src="/assets/images/porto.jpg"
+                    src="/assets/images/porto.webp"
                     alt="Nawaf Ariq Hilalbi"
                     className="w-full h-full object-cover object-top"
                     referrerPolicy="no-referrer"
