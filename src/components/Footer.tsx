@@ -35,7 +35,7 @@ export function Footer({
             <div className="lg:col-span-5">
               <AMonogram className="w-10 h-8 mb-4" color="#FAF8F3" />
               <p className="text-sm text-white/65 max-w-[270px] leading-relaxed mb-5">
-                Websites, web applications, and Android mobile applications that ship.
+                Web and mobile applications, plus photography and editing shaped with care.
               </p>
               <div className="flex items-center gap-2.5">
                 <a
@@ -131,10 +131,10 @@ export function Footer({
                 <li>
                   <button
                     type="button"
-                    onClick={() => onNavigateService('websites')}
+                    onClick={() => onNavigateService('photography-editing')}
                     className="hover:text-[#F4C542] transition-colors cursor-pointer"
                   >
-                    Websites
+                    Photography & Editing
                   </button>
                 </li>
                 <li>
