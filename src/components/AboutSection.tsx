@@ -70,7 +70,7 @@ function StoryParagraph({
       >
         {step.number} / {step.kicker}
       </p>
-      <p className="text-xl sm:text-[26px] font-semibold leading-[1.42] tracking-[-0.015em] text-[#18181A] dark:text-[#FAF8F3]">
+      <p className="text-xl sm:text-[20px] font-semibold leading-[1.42] tracking-[-0.015em] text-[#18181A] dark:text-[#FAF8F3]">
         {lines.map((line, lineIdx) => (
           <span key={`${step.number}-line-${lineIdx}`} className="block">
             {line.split(' ').map((word) => {
