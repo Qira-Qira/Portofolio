@@ -50,7 +50,7 @@ export function ExperienceSection() {
           </SectionHeadingItem>
           <SectionHeadingItem>
             <h2 className="text-4xl sm:text-5xl font-extrabold tracking-[-0.035em] leading-[1.05] text-[#18181A] dark:text-[#FAF8F3] mb-4">
-              Where I&apos;ve worked.
+              Pengalaman Organisasi Kampus
             </h2>
           </SectionHeadingItem>
           <SectionHeadingItem>
@@ -82,7 +82,7 @@ export function ExperienceSection() {
 
         {/* Right Experience Cards Stack */}
         <div ref={stackRef} className="lg:col-span-8 space-y-8 relative">
-          {/* Card 01: Web Developer at PT. Niconsite (Sticky on desktop while gallery overlaps) */}
+          {/* Card 01: PDD at Universitas Internasional Semen Indonesia */}
           <motion.article
             style={{ scale: roleScale, opacity: roleOpacity }}
             className="lg:sticky lg:top-24 bg-white dark:bg-[#1F1F24] brutal-card-lg rounded-xl overflow-hidden origin-top"
@@ -92,9 +92,11 @@ export function ExperienceSection() {
               <span className="font-mono-code font-extrabold text-sm text-[#18181A]">
                 {role.index}
               </span>
-              <span className="text-[11px] font-mono-code font-bold tracking-[0.14em] uppercase text-[#18181A]">
-                {role.period}
-              </span>
+              {role.period && (
+                <span className="text-[11px] font-mono-code font-bold tracking-[0.14em] uppercase text-[#18181A]">
+                  {role.period}
+                </span>
+              )}
             </div>
 
             <div className="p-6 sm:p-8">
@@ -112,10 +114,6 @@ export function ExperienceSection() {
                     </span>
                     <span aria-hidden="true">·</span>
                     <span>{role.type}</span>
-                    <span aria-hidden="true">·</span>
-                    <span>{role.location}</span>
-                    <span aria-hidden="true">·</span>
-                    <span>{role.mode}</span>
                   </div>
                 </div>
               </div>
@@ -162,6 +160,47 @@ export function ExperienceSection() {
             transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
             className="relative z-10 bg-white dark:bg-[#1F1F24] brutal-card-lg rounded-xl p-4 sm:p-6"
           >
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {/* Large top photo spanning 2 cols */}
+              <div className="sm:col-span-2 rounded-lg border-2 border-[#18181A] dark:border-white/75 overflow-hidden bg-[#FAF8F3] dark:bg-[#161618] group">
+                <div className="aspect-[16/9] w-full overflow-hidden">
+                  <img
+                    src={EXPERIENCE_PHOTOS[0].src}
+                    alt={EXPERIENCE_PHOTOS[0].alt}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                    referrerPolicy="no-referrer"
+                  />
+                </div>
+                <div className="px-3.5 py-2 border-t-2 border-[#18181A] dark:border-white/75 bg-white dark:bg-[#1F1F24]">
+                  <p className="text-[10px] font-mono-code font-bold tracking-[0.14em] uppercase text-[#575650] dark:text-[#FAF8F3]/70">
+                    {EXPERIENCE_PHOTOS[0].caption}
+                  </p>
+                </div>
+              </div>
+
+              {/* Bottom 2 photos */}
+              {EXPERIENCE_PHOTOS.slice(1).map((photo) => (
+                <div
+                  key={photo.id}
+                  className="rounded-lg border-2 border-[#18181A] dark:border-white/75 overflow-hidden bg-[#FAF8F3] dark:bg-[#161618] group"
+                >
+                  <div className="aspect-[4/3] w-full overflow-hidden">
+                    <img
+                      src={photo.src}
+                      alt={photo.alt}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+                      referrerPolicy="no-referrer"
+                    />
+                  </div>
+                  <div className="px-3 py-2 border-t-2 border-[#18181A] dark:border-white/75 bg-white dark:bg-[#1F1F24]">
+                    <p className="text-[10px] font-mono-code font-bold tracking-[0.12em] uppercase text-[#575650] dark:text-[#FAF8F3]/70 truncate">
+                      {photo.caption}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+              <br/>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {/* Large top photo spanning 2 cols */}
               <div className="sm:col-span-2 rounded-lg border-2 border-[#18181A] dark:border-white/75 overflow-hidden bg-[#FAF8F3] dark:bg-[#161618] group">
